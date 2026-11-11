@@ -1130,7 +1130,533 @@ const datasets = {
       trO: ["صح", "خطأ"]
     } 
   ],
-  "place2": [],
+  "place2": [
+    {
+      q: "Human development is an ongoing process that begins at the moment of:",
+      o: ["Birth", "Fertilization", "Implantation", "Puberty"],
+      a: 1,
+      trQ: "التطور البشري هو عملية مستمرة تبدأ في لحظة:",
+      trO: ["الولادة", "الإخصاب", "الانغراس", "البلوغ"]
+    },
+    {
+      q: "There are how many different stages of human development during pregnancy including pre-embryonic, embryonic, and fetal stage?",
+      o: ["Two stages", "Three stages", "Four stages", "Five stages"],
+      a: 1,
+      trQ: "كم عدد مراحل التطور البشري أثناء الحمل (متضمنة مرحلة ما قبل الجنين، والمرحلة الجنينية، ومرحلة الفتال)؟",
+      trO: ["مرحلتان", "ثلاث مراحل", "أربع مراحل", "خمس مراحل"]
+    },
+    {
+      q: "The pre-embryonic stage begins at fertilization and lasts through the end of:",
+      o: ["The first week", "The second week after fertilization", "The eighth week", "The ninth week"],
+      a: 1,
+      trQ: "تبدأ مرحلة ما قبل الجنين من الإخصاب وتستمر حتى نهاية:",
+      trO: ["الأسبوع الأول", "الأسبوع الثاني بعد الإخصاب", "الأسبوع الثامن", "الأسبوع التاسع"]
+    },
+    {
+      q: "The ovum is receptive to fertilization for approximately how many hours after release from the ovary?",
+      o: ["12 to 24 hours", "24 to 48 hours", "48 to 72 hours", "72 to 96 hours"],
+      a: 1,
+      trQ: "تكون البويضة قابلة للإخصاب لمدة تقارب كم ساعة بعد خروجها من المبيض؟",
+      trO: ["12 إلى 24 ساعة", "24 إلى 48 ساعة", "48 إلى 72 ساعة", "72 إلى 96 ساعة"]
+    },
+    {
+      q: "The sperm is viable for how many hours after ejaculation into the vagina?",
+      o: ["12 to 24 hours", "24 to 72 hours", "72 to 96 hours", "1 week"],
+      a: 1,
+      trQ: "يبقى الحيوان المنوي صالحاً للإخصاب لمدة كم ساعة بعد القذف في المهبل؟",
+      trO: ["12 إلى 24 ساعة", "24 إلى 72 ساعة", "72 إلى 96 ساعة", "أسبوع واحد"]
+    },
+    {
+      q: "During intercourse, the man ejaculates approximately how many sperms deposited in 3 ml of seminal fluid?",
+      o: ["10-50 million", "50-100 million", "300-600 million", "1 billion"],
+      a: 2,
+      trQ: "أثناء الجماع، يقذف الرجل تقريباً كم عدد من الحيوانات المنوية في 3 مل من السائل المنوي؟",
+      trO: ["10-50 مليون", "50-100 مليون", "300-600 مليون", "1 مليار"]
+    },
+    {
+      q: "What is the name of the substance supplied by sperm to soften the corona radiata?",
+      o: ["Prostaglandins", "Hyaluronidase", "HCG", "Progesterone"],
+      a: 1,
+      trQ: "ما هو اسم المادة التي يفرزها الحيوان المنوي لتليين الهالة الشعاعية (corona radiata)؟",
+      trO: ["بروستاجلاندين", "هيالورونيديز", "هرمون الحمل HCG", "بروجسترون"]
+    },
+    {
+      q: "Conception usually occurs when the ovum is in the:",
+      o: ["Uterus", "Cervix", "Ampulla of the fallopian tube", "Vagina"],
+      a: 2,
+      trQ: "يحدث الحمل عادة عندما تكون البويضة في:",
+      trO: ["الرحم", "عنق الرحم", "أمبولة قناة فالوب", "المهبل"]
+    },
+    {
+      q: "The chromosomal numbers merge to complete the diploid number of 46 resulting in a single cell known as the:",
+      o: ["Morula", "Blastocyst", "Zygote", "Embryo"],
+      a: 2,
+      trQ: "تندمج الأعداد الصبغية لإكمال العدد الثنائي 46 مما ينتج عنه خلية واحدة تُعرف بـ:",
+      trO: ["التوتية (Morula)", "الكيس البلاستولي (Blastocyst)", "الزيجوت (Zygote)", "الجنين"]
+    },
+    {
+      q: "Cellular reproduction of the zygote begins through which process?",
+      o: ["Meiosis", "Mitotic division (cleavage)", "Binary fission", "Budding"],
+      a: 1,
+      trQ: "يبدأ التكاثر الخلوي للزيجوت من خلال أي عملية؟",
+      trO: ["الانقسام الاختزالي", "الانقسام المتساوي (الفتيلي)", "الانقسام الثنائي", "التبرعم"]
+    },
+    {
+      q: "Nearly, at about what day after fertilization, the total cell count has reached 32 (morula)?",
+      o: ["1st day", "3rd day", "5th day", "6th day"],
+      a: 1,
+      trQ: "تقريباً في أي يوم بعد الإخصاب يصل عدد الخلايا الإجمالي إلى 32 وتسمى التوتية (morula)؟",
+      trO: ["اليوم الأول", "اليوم الثالث", "اليوم الخامس", "اليوم السادس"]
+    },
+    {
+      q: "At about the 5th day after fertilization, the dividing cell mass has developed a hollow, fluid-filled core and is called a:",
+      o: ["Morula", "Zygote", "Blastocyst", "Embryo"],
+      a: 2,
+      trQ: "في حوالي اليوم الخامس بعد الإخصاب، تتطور كتلة الخلايا المنقسمة لتصبح ذات قلب أجوف ممتلئ بالسوائل وتسمى:",
+      trO: ["توتية", "زيجوت", "كيس بلاستولي (Blastocyst)", "جنين"]
+    },
+    {
+      q: "The outer layer of cells in the blastocyst is called:",
+      o: ["Embryonic disc", "Trophoblast", "Endometrium", "Decidua"],
+      a: 1,
+      trQ: "الطبقة الخارجية من الخلايا في الكيس البلاستولي تسمى:",
+      trO: ["قرص الجنين", "الترفوبلاست (Trophoblast)", "بطانة الرحم", "الغشاء الساقط (Decidua)"]
+    },
+    {
+      q: "Almost on what day after fertilization does the trophoblast develop finger-like projections to burrow into the endometrium?",
+      o: ["3rd day", "5th day", "6th day", "10th day"],
+      a: 2,
+      trQ: "في أي يوم تقريباً بعد الإخصاب يطور الترفوبلاست نتوءات تشبه الأصابع للانغراس في بطانة الرحم؟",
+      trO: ["اليوم الثالث", "اليوم الخامس", "اليوم السادس", "اليوم العاشر"]
+    },
+    {
+      q: "By what day is the blastocyst completely buried in the uterine lining, which is known as the decidua?",
+      o: ["6th day", "8th day", "10th day", "14th day"],
+      a: 2,
+      trQ: "بحلول أي يوم يكون الكيس البلاستولي قد انغرس تماماً في بطانة الرحم المعروفة بالدجديوا (decidua)؟",
+      trO: ["اليوم السادس", "اليوم الثامن", "اليوم العاشر", "اليوم الرابع عشر"]
+    },
+    {
+      q: "The blastocyst begins to produce human chorionic gonadotropin (HCG), which signals which structure to continue producing progesterone?",
+      o: ["Placenta", "Corpus luteum", "Pituitary gland", "Ovary cortex"],
+      a: 1,
+      trQ: "يبدأ الكيس البلاستولي في إنتاج هرمون الحمل (HCG)، مما يشير لأي تركيب للاستمرار في إنتاج البروجسترون؟",
+      trO: ["المشيمة", "الجسم الأصفر (Corpus luteum)", "الغدة النخامية", "قشرة المبيض"]
+    },
+    {
+      q: "The embryonic stage lasts from the end of the second week until the end of:",
+      o: ["4th week", "6th week", "8th week", "12th week"],
+      a: 2,
+      trQ: "تستمر مرحلة الجنين (Embryonic stage) من نهاية الأسبوع الثاني حتى نهاية:",
+      trO: ["الأسبوع الرابع", "الأسبوع السادس", "الأسبوع الثامن", "الأسبوع الثاني عشر"]
+    },
+    {
+      q: "In the 3rd week of the embryonic stage, three germ layers develop. Which layer forms skin, hair, nails, and the nervous system?",
+      o: ["Mesoderm layer", "Endoderm layer", "Ectoderm layer", "Placental layer"],
+      a: 2,
+      trQ: "في الأسبوع الثالث تتطور ثلاث طبقات جرثومية. أي طبقة تشكل الجلد، الشعر، الأظافر، والجهاز العصبي؟",
+      trO: ["طبقة الأدمة المتوسطة (Mesoderm)", "طبقة الأدمة الداخلية (Endoderm)", "طبقة الأدمة الخارجية (Ectoderm)", "طبقة المشيمة"]
+    },
+    {
+      q: "Which germ layer forms the skeletal, muscular, and circulatory systems?",
+      o: ["Ectoderm layer", "Mesoderm layer", "Endoderm layer", "Amnion"],
+      a: 1,
+      trQ: "أي طبقة جرثومية تشكل الجهاز الهيكلي، العضلي، والدوري (القلب والأوعية)؟",
+      trO: ["الأدمة الخارجية", "الأدمة المتوسطة (Mesoderm)", "الأدمة الداخلية", "الأمينون"]
+    },
+    {
+      q: "Which germ layer forms the glands, lungs, and urinary and digestive tracts?",
+      o: ["Ectoderm layer", "Mesoderm layer", "Endoderm layer", "Chorion"],
+      a: 2,
+      trQ: "أي طبقة جرثومية تشكل الغدد، الرئتين، والجهاز البولي والهضمي؟",
+      trO: ["الأدمة الخارجية", "الأدمة المتوسطة", "الأدمة الداخلية (Endoderm)", "الكوريون"]
+    },
+    {
+      q: "The fetal stage starts from the beginning of which week after fertilization and continues until birth?",
+      o: ["6th week", "8th week", "9th week", "12th week"],
+      a: 2,
+      trQ: "تبدأ مرحلة الفتال (Fetal stage) من بداية أي أسبوع بعد الإخصاب وتستمر حتى الولادة؟",
+      trO: ["الأسبوع السادس", "الأسبوع الثامن", "الأسبوع التاسع", "الأسبوع الثاني عشر"]
+    },
+    {
+      q: "A woman is most likely to get pregnant if she has sex within a day or so of ovulation, which is usually about how many days after the last period?",
+      o: ["7 days", "10 days", "14 days", "21 days"],
+      a: 2,
+      trQ: "من المرجح أن تحبل المرأة إذا حدث جماع خلال يوم أو نحو ذلك من التبويض، والذي يكون عادة بعد كم يوم من آخر دورة؟",
+      trO: ["7 أيام", "10 أيام", "14 يوماً", "21 يوماً"]
+    },
+    {
+      q: "If the egg is fertilized by a sperm containing an X chromosome, the baby will be a:",
+      o: ["Boy (XY)", "Girl (XX)", "Twins", "Triplets"],
+      a: 1,
+      trQ: "إذا تم إخصاب البويضة بحيوان منوي يحتوي على كروموسوم X، فسيكون المولود:",
+      trO: ["ولد (XY)", "بنت (XX)", "توأم", "ثلاث توائم"]
+    },
+    {
+      q: "There are two fetal membranes, which are:",
+      o: ["Placenta and umbilical cord", "Amnion and chorion", "Decidua and trophoblast", "Ectoderm and endoderm"],
+      a: 1,
+      trQ: "هناك غشاءان جنينيان هما:",
+      trO: ["المشيمة والحبل السري", "الأمينون والكوريون (Amnion and chorion)", "الدجديوا والترفوبلاست", "الإكتوديرم والإندوديرم"]
+    },
+    {
+      q: "Which of the following is a function of amniotic fluid?",
+      o: ["Produces progesterone", "Serves as a cushion to protect the fetus from injury", "Carries deoxygenated blood", "Forms the corpus luteum"],
+      a: 1,
+      trQ: "أي مما يلي يعتبر وظيفة للسائل الأمينوسي؟",
+      trO: ["إنتاج البروجسترون", "يعمل وسادة لحماية الجنين من الإصابة", "يحمل الدم غير المؤكسج", "يشكل الجسم الأصفر"]
+    },
+    {
+      q: "The placenta has an endocrine function in that it secretes hormones that help to sustain the pregnancy, including HCG, HPL, estrogen, and:",
+      o: ["Insulin", "Progesterone", "Thyroxine", "Oxytocin"],
+      a: 1,
+      trQ: "للمشيمة وظيفة غدد صماء حيث تفرز هرمونات للحفاظ على الحمل، تشمل HCG و HPL والاستروجين و:",
+      trO: ["الأنسولين", "البروجسترون", "الثيروكسين", "الأكسيتوسين"]
+    },
+    {
+      q: "The umbilical cord contains how many arteries and how many veins?",
+      o: ["One artery and two veins", "Two arteries and one vein", "Two arteries and two veins", "One artery and one vein"],
+      a: 1,
+      trQ: "يحتوي الحبل السري على كم شريان وكم وريد؟",
+      trO: ["شريان واحد ووريدان", "شريانان ووريد واحد (Two arteries and one vein)", "شريانان ووريدان", "شريان واحد ووريد واحد"]
+    },
+    {
+      q: "The gelatinous substance that surrounds the blood vessels in the umbilical cord and helps prevent compression is called:",
+      o: ["Amniotic fluid", "Wharton's Jelly", "Vernix caseosa", "Decidua"],
+      a: 1,
+      trQ: "المادة الهلامية التي تحيط بالأوعية الدموية في الحبل السري وتساعد في منع الضغط عليها تسمى:",
+      trO: ["السائل الأمينوسي", "جيلي وارتون (Wharton's Jelly)", "الطلاء الدهني", "الدجديوا"]
+    },
+    {
+      q: "Three commonly used categories of signs and symptoms of pregnancy are presumptive, probable, and:",
+      o: ["Possible", "Positive", "Primary", "Permanent"],
+      a: 1,
+      trQ: "الفئات الثلاث الشائعة الاستخدام لعلامات وأعراض الحمل هي التخمينية، المحتملة، و:",
+      trO: ["الممكنة", "الإيجابية (Positive)", "الأساسية", "الدائمة"]
+    },
+    {
+      q: "Which of the following is considered a presumptive sign of pregnancy?",
+      o: ["Hearing fetal heart sounds", "Visualization of the fetus by ultrasound", "Absent menstrual periods (amenorrhea)", "Positive pregnancy test"],
+      a: 2,
+      trQ: "أي مما يلي يعتبر علامة تخمينية (Presumptive) للحمل؟",
+      trO: ["سماع ضربات قلب الجنين", "رؤية الجنين بالموجات فوق الصوتية", "انقطاع الطمث (انقطاع الدورة الشهرية)", "اختبار الحمل الإيجابي"]
+    },
+    {
+      q: "Softening of the cervix during pregnancy is known as:",
+      o: ["Hegar's sign", "Goodell's sign", "Chadwick sign", "Braxton Hicks"],
+      a: 1,
+      trQ: "لين عنق الرحم أثناء الحمل يُعرف بـ:",
+      trO: ["علامة هيجار", "علامة جوديل (Goodell's sign)", "علامة تشادويك", "مخاض براكستون هيكس"]
+    },
+    {
+      q: "A bluish discoloration of the vagina and cervix caused by venous dilatation is known as:",
+      o: ["Goodell's sign", "Chadwick sign", "Hegar sign", "Montgomery's tubercles"],
+      a: 1,
+      trQ: "التغير الأزرق في لون المهبل وعنق الرحم الناتج عن تمدد الأوعية الدموية يُعرف بـ:",
+      trO: ["علامة جوديل", "علامة تشادويك (Chadwick sign)", "علامة هيجار", "درنات مونتجومري"]
+    },
+    {
+      q: "A plug of mucus formed by the 8th week from cervical secretions that seals off the uterus is called:",
+      o: ["Show", "Operculum", "Wharton's jelly", "Decidua"],
+      a: 1,
+      trQ: "سدادة من المخاط تتكون بحلول الأسبوع الثامن تغلق الرحم تسمى:",
+      trO: ["الشو (Show)", "الأوبركولوم (Operculum)", "جيلي وارتون", "الدجديوا"]
+    },
+    {
+      q: "Which of the following is considered a positive sign of pregnancy?",
+      o: ["Nausea and vomiting", "Quickening", "Hearing fetal heart sounds by a Doppler", "Breast tenderness"],
+      a: 2,
+      trQ: "أي مما يلي يعتبر علامة إيجابية (مؤكدة) للحمل؟",
+      trO: ["الغثيان والقيء", "حركة الجنين (Quickening)", "سماع ضربات قلب الجنين بواسطة الدوبلر", "ألم الثدي"]
+    },
+    {
+      q: "During pregnancy, the weight of the uterus increases from 50-70 grams to about:",
+      o: ["500 grams", "1000 grams (1 kg)", "2000 grams", "5000 grams"],
+      a: 1,
+      trQ: "أثناء الحمل، يزداد وزن الرحم من 50-70 جراماً إلى حوالي:",
+      trO: ["500 جرام", "1000 جرام (كيلو جرام واحد)", "2000 جرام", "5000 جرام"]
+    },
+    {
+      q: "Irregular, painless contractions occurring during pregnancy are known as:",
+      o: ["True labor contractions", "Braxton Hicks contractions", "Uterine rupture", "Perineal contractions"],
+      a: 1,
+      trQ: "الانقباضات غير المنتظمة وغير المؤلمة التي تحدث أثناء الحمل تُعرف بـ:",
+      trO: ["انقباضات المخاض الحقيقي", "انقباضات براكستون هيكس (Braxton Hicks)", "تمزق الرحم", "انقباضات العجان"]
+    },
+    {
+      q: "The areolae become darker and are surrounded by prominent sebaceous glands known as:",
+      o: ["Chadwick sign", "Montgomery's tubercles", "Goodell's sign", "Hegar sign"],
+      a: 1,
+      trQ: "تصبح الهالة داكنة وتحيط بها غدد دهنية بارزة تُعرف بـ:",
+      trO: ["علامة تشادويك", "درنات مونتجومري (Montgomery's tubercles)", "علامة جوديل", "علامة هيجار"]
+    },
+    {
+      q: "Gastric acid reflux or heartburn in pregnancy is primarily caused by:",
+      o: ["Increased stomach acidity", "Relaxation of the cardiac sphincter due to progesterone", "Enlarged liver", "Decreased water intake"],
+      a: 1,
+      trQ: "ارتجاع حمض المعدة أو حرقة المعدة في الحمل سببه الرئيسي هو:",
+      trO: ["زيادة حموضة المعدة", "استرخاء العضلة العاصرة الفؤادية بسبب البروجسترون", "تضخم الكبد", "قلة تناول الماء"]
+    },
+    {
+      q: "What is the average total weight gain during a normal pregnancy?",
+      o: ["3 to 5 kilograms", "9 to 12 kilograms", "15 to 20 kilograms", "25 kilograms"],
+      a: 1,
+      trQ: "ما هو متوسط زيادة الوزن الإجمالية أثناء الحمل الطبيعي؟",
+      trO: ["3 إلى 5 كيلوجرامات", "9 إلى 12 كيلوجراماً", "15 إلى 20 كيلوجراماً", "25 كيلوجراماً"]
+    },
+    {
+      q: "Darker pigmentation in the pregnant woman's face is known as chloasma or:",
+      o: ["Linea nigra", "Pregnancy mask", "Striae gravidarum", "Spider nevi"],
+      a: 1,
+      trQ: "التصبغ الداكن في وجه المرأة الحامل يُعرف بالكلواسما أو:",
+      trO: ["الخط الأسود", "قناع الحمل (Pregnancy mask)", "علامات التمدد", "الوحمات العنكبوتية"]
+    },
+    {
+      q: "An abdominal midline extending from above the umbilicus to the pubic hair during pregnancy is called:",
+      o: ["Linea nigra", "Chloasma", "Striae gravidarum", "Operculum"],
+      a: 0,
+      trQ: "الخط الوسطي البطني الذي يمتد من فوق السرة إلى شعر العانة أثناء الحمل يُسمى:",
+      trO: ["الخط الأسود (Linea nigra)", "كلواسما", "علامات التمدد", "الأوبركولوم"]
+    },
+    {
+      q: "Stretch marks appearing on the abdomen, breasts, and buttocks during pregnancy are known medically as:",
+      o: ["Chloasma", "Linea nigra", "Striae gravidarum", "Montgomery's tubercles"],
+      a: 2,
+      trQ: "علامات التمدد التي تظهر على البطن والثديين والأرداف أثناء الحمل تُعرف طبياً بـ:",
+      trO: ["كلواسما", "لينيرا نيغرا", "علامات التمدد (Striae gravidarum)", "درنات مونتجومري"]
+    },
+    {
+      q: "Commonly, pregnant women adopt which posture to compensate for the center of gravity shift?",
+      o: ["Kyphosis posture", "Lordosis posture", "Scoliosis posture", "Upright straight posture"],
+      a: 1,
+      trQ: "عادة، تتخذ النساء الحوامل أي وضعية تعويضاً عن تحول مركز الثقل؟",
+      trO: ["وضع الحداب (Kyphosis)", "وضع القعس / الانحناء للخلف (Lordosis posture)", "وضع الجنف (Scoliosis)", "وضع مستقيم"]
+    },
+    {
+      q: "The blood volume increases during pregnancy by about:",
+      o: ["10-20%", "20-30%", "40-50%", "80-100%"],
+      a: 2,
+      trQ: "يزداد حجم الدم أثناء الحمل بنسبة حوالي:",
+      trO: ["10-20%", "20-30%", "40-50%", "80-100%"]
+    },
+    {
+      q: "A state of haemodilution during pregnancy leads to a reduction in hemoglobin to about 80% of normal, which is called:",
+      o: ["Pernicious anemia", "Physiological anemia of pregnancy", "Iron deficiency anemia", "Aplastic anemia"],
+      a: 1,
+      trQ: "تؤدي حالة تخفيف الدم أثناء الحمل إلى انخفاض الهيموجلوبين إلى حوالي 80% من الطبيعي، وهو ما يُسمى:",
+      trO: ["فقر الدم الخبيث", "أنيميا الحمل الفسيولوجية (Physiological anemia of pregnancy)", "أنيميا نقص الحديد", "أنيميا أبلاستيكية"]
+    },
+    {
+      q: "What happens to cardiac output during pregnancy?",
+      o: ["Decreases by 20%", "Increases by about 50%", "Remains unchanged", "Stops completely"],
+      a: 1,
+      trQ: "ماذا يحدث لنتاج القلب (cardiac output) أثناء الحمل؟",
+      trO: ["ينخفض بنسبة 20%", "يزداد بنسبة 50% تقريباً", "يبقى دون تغيير", "يتوقف تماماً"]
+    },
+    {
+      q: "What is the weight of the fetus mentioned in the normal weight gain breakdown?",
+      o: ["1.5 kg", "2.5 kg", "3.5 kg", "4.5 kg"],
+      a: 2,
+      trQ: "ما هو وزن الجنين المذكور في تفصيل زيادة الوزن الطبيعية؟",
+      trO: ["1.5 كجم", "2.5 كجم", "3.5 كجم (3.5 kg)", "4.5 كجم"]
+    },
+    {
+      q: "What is the weight of the amniotic fluid mentioned in pregnancy weight components?",
+      o: ["0.5 kg", "1.0 kg", "2.0 kg", "3.0 kg"],
+      a: 1,
+      trQ: "ما هو وزن السائل الأمينوسي المذكور في مكونات وزن الحمل؟",
+      trO: ["0.5 كجم", "1.0 كجم (1.0 kg)", "2.0 كجم", "3.0 كجم"]
+    },
+    {
+      q: "Dyspnea in the last trimester of pregnancy is a common complaint primarily due to:",
+      o: ["Heart disease", "Elevation of the diaphragm", "Anemia", "Low blood pressure"],
+      a: 1,
+      trQ: "ضيق التنفس في الثلث الأخير من الحمل هو شكوى شائعة ويرجع السبب الرئيسي فيها إلى:",
+      trO: ["مرض قلبي", "ارتفاع الحجاب الحاجز (Elevation of the diaphragm)", "أنيميا", "انخفاض ضغط الدم"]
+    },
+    {
+      q: "The hormone responsible for the relaxation of smooth muscles and cardiac sphincter during pregnancy is:",
+      o: ["Estrogen", "Progesterone", "Oxytocin", "Prolactin"],
+      a: 1,
+      trQ: "الهرمون المسؤول عن استرخاء العضلات الملساء والعضلة العاصرة الفؤادية أثناء الحمل هو:",
+      trO: ["استروجين", "بروجسترون (Progesterone)", "أكسيتوسين", "برولاكتين"]
+    },
+    {
+      q: "True or False: Human development is an ongoing process that begins at the moment of fertilization and continues even after birth.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: التطور البشري عملية مستمرة تبدأ في لحظة الإخصاب وتستمر حتى بعد الولادة.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: There are three different stages of human development during pregnancy: pre-embryonic, embryonic, and fetal stage.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: توجد ثلاث مراحل مختلفة للتطور البشري أثناء الحمل: ما قبل الجنين، الجنين، والفتال.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The pre-embryonic stage begins at fertilization and lasts through the end of the second week after fertilization.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: تبدأ مرحلة ما قبل الجنين من الإخصاب وتستمر حتى نهاية الأسبوع الثاني بعد الإخصاب.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Conception usually occurs when the ovum is in the ampulla of the fallopian tube.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: يحدث الحمل عادة عندما تكون البويضة في أمبولة قناة فالوب.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The zygote undergoes mitotic division (cleavage) as it travels through the fallopian tubes toward the uterus.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: تخضع البويضة المخصبة (الزيجوت) للانقسام المتساوي أثناء انتقالها عبر قنوات فالوب نحو الرحم.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: At about the 3rd day after fertilization, the total cell count has reached 32 and is referred to as a morula.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: في حوالي اليوم الثالث بعد الإخصاب يصل عدد الخلايا إلى 32 وتُعرف بالتوتية (morula).",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: At about the 5th day after fertilization, the dividing cell mass develops a hollow, fluid-filled core and is called a blastocyst.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: في حوالي اليوم الخامس بعد الإخصاب، تتطور كتلة الخلايا لتصبح ذات قلب أجوف ممتلئ بالسوائل وتسمى كيس بلاستولي.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Implantation of the blastocyst into the nutrient-rich endometrium begins almost on the 6th day after fertilization.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: يبدأ انغراس الكيس البلاستولي في بطانة الرحم الغنية بالمواد المغذية تقريباً في اليوم السادس بعد الإخصاب.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The embryonic stage lasts from the end of the second week after fertilization until the end of the 8th week.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: تستمر مرحلة الجنين من نهاية الأسبوع الثاني بعد الإخصاب حتى نهاية الأسبوع الثامن.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The ectoderm layer develops to form the skin, hair, nails, and the nervous system.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: تتطور طبقة الأدمة الخارجية (Ectoderm) لتشكل الجلد، الشعر، الأظافر، والجهاز العصبي.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The mesoderm layer forms the skeletal, muscular, and circulatory systems.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: تشكل طبقة الأدمة المتوسطة (Mesoderm) الهيكل العظمي، العضلي، والجهاز الدوري.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The endoderm layer forms the glands, lungs, and urinary and digestive tracts.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: تشكل طبقة الأدمة الداخلية (Endoderm) الغدد، الرئتين، والمسالك البولية والهضمية.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The fetal stage starts from the beginning of the 9th week after fertilization and continues until birth.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: تبدأ مرحلة الفتال من بداية الأسبوع التاسع بعد الإخصاب وتستمر حتى الولادة.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: A woman is most likely to get pregnant if she has sex within a day or so of ovulation, usually about 14 days after the last period.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: من المرجح أن تحبل المرأة إذا مارست الجنس خلال يوم من التبويض، وعادة بعد 14 يوماً من آخر دورة.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Amniotic fluid serves as a cushion to protect the fetus from injury and provides a temperature control mechanism.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: يعمل السائل الأمينوسي كوسادة لحماية الجنين من الإصابة ويوفر آلية للتحكم في درجة الحرارة.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The placenta transfers nutrients such as oxygen and glucose to the fetus while removing waste products such as carbon dioxide and urea.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: تنقل المشيمة العناصر الغذائية مثل الأكسجين والجلوكوز للجنين بينما تزيل الفضلات مثل ثاني أكسيد الكربون واليوريا.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The umbilical cord contains two arteries that bring deoxygenated blood and one vein that carries oxygenated blood.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: يحتوي الحبل السري على شريانين يحملان دم غير مؤكسج ووريد واحد يحمل دم مؤكسج.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Wharton's Jelly is a clear gelatinous substance that surrounds vessels in the umbilical cord to help prevent compression.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: جيلي وارتون هو مادة هلامية شفافة تحيط بالأوعية في الحبل السري للمساعدة في منع الضغط عليها.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Absent menstrual periods (amenorrhea) and morning sickness are classified as presumptive signs of pregnancy.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: انقطاع الدورة الشهرية (انقطاع الطمث) والغثيان الصباحي تُصنف كعلامات تخمينية للحمل.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Softening of the cervix is known clinically as Goodell's sign.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: لين عنق الرحم يُعرف سريرياً بعلامة جوديل (Goodell's sign).",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Braxton Hicks contractions are irregular, painless contractions occurring in the first trimester, known as false labor.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: انقباضات براكستون هيكس هي انقباضات غير المنتظمة وغير المؤلمة تحدث في الثلث الأول وتعرف بالمخاض الكاذب.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Average total weight gain during a normal pregnancy is between 9 and 12 kilograms.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: متوسط زيادة الوزن الإجمالية أثناء الحمل الطبيعي يتراوح بين 9 و 12 كيلوجراماً.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The enlarging uterus pushes the diaphragm upwards, which can cause dyspnea in the last trimester of pregnancy.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: الرحم المتضخم يدفع الحجاب الحاجز لأعلى، مما قد يسبب ضيق التنفس في الثلث الأخير من الحمل.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The symphysis pubis and sacroiliac joints become slightly mobile during pregnancy, which can cause unstable movement and backache.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: يصبح ارتفاق العانة والمفصل الحرقفي العجزي متحركين قليلاً أثناء الحمل، مما قد يسبب عدم استقرار الحركة وألم الظهر.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Physiological anemia of pregnancy occurs because plasma volume increases more than red cell volume, leading to a state of haemodilution.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: تحدث أنيميا الحمل الفسيولوجية لأن حجم البلازما يزداد أكثر من حجم خلايا الدم الحمراء، مما يؤدي لحالة تخفيف الدم.",
+      trO: ["صح", "خطأ"]
+    }
+  ],
   "place3": [],
   "place4": [],
   "place5": [],
