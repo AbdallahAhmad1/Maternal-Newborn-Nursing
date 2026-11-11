@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<title>Maternal & Newborn Nursing 🤰 | The Coding Nurse (A&M)🩺💉</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+:root[data-theme="light"] {
+  --primary: #0f4c81;
+  --secondary: #0ea5e9;
+  --success: #22c55e;
+  --danger: #dc2626;
+  --bg: #f1f5f9;
+  --card-bg: #ffffff;
+  --soft: #f8fafc;
+  --text: #0f172a;
+  --border: #e5e7eb;
+  --shadow: rgba(0,0,0,.06);
+}
+:root[data-theme="dark"] {
+  --primary: #38bdf8;
+  --secondary: #0ea5e9;
+  --success: #4ade80;
+  --danger: #f87171;
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --soft: #0f172a;
+  --text: #f8fafc;
+  --border: #334155;
+  --shadow: rgba(0,0,0,.3);
+}
+
+*{box-sizing:border-box; font-family:"Segoe UI", system-ui, sans-serif; transition: background 0.3s, color 0.3s;}
+body{margin:0; background:var(--bg); color:var(--text)}
+.container{max-width:1000px; margin:auto; padding:16px; position: relative;}
+
+.top-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: -36px;
+  margin-bottom: 26px;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.settings-bar {
+  display: flex;
+  gap: 6px;
+}
+
+.setting-btn, .theme-toggle {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--text);
+  box-shadow: 0 4px 12px var(--shadow);
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+.shake-anim { animation: shake 0.3s ease-in-out; }
+
+.hero{
+  text-align:center;
+  padding:40px 20px 50px 20px;
+  border-radius:24px;
+  background: linear-gradient(135deg, #0f4c81, #0ea5e9);
+  color:#fff;
+  margin-bottom: 20px;
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 25px rgba(15, 76, 129, 0.2);
+}
+.hero h1{margin:0; font-size:32px; font-weight:800}
+.hero h2{ margin-top:6px; font-size:18px; letter-spacing:2px; text-transform:uppercase; color:#bbf7d0;}
+
+.mid-nav{ display:flex; gap:10px; margin:24px 0; padding:6px 4px; overflow-x:auto;}
+.q-btn{
+  min-width:44px; padding:10px 0; border-radius:12px; border:2px solid var(--border);
+  background:var(--card-bg); color: var(--text); font-weight:700; cursor:pointer; transition: all 0.2s ease;
+}
+.q-btn.active{background:#dbeafe; border-color:var(--secondary); color:#0f4c81; transform: scale(1.1); box-shadow: 0 4px 10px rgba(14, 165, 233, 0.2);}
+.q-btn.correct{background:#dcfce7 !important; border-color:var(--success) !important; color: #16a34a !important;}
+.q-btn.wrong{background:#fee2e2 !important; border-color:var(--danger) !important; color: #dc2626 !important;}
+.q-btn.flagged{border-color: #f59e0b !important; background: #fef3c7 !important; color: #b45309 !important;}
+.q-btn.answered-exam { background: #e2e8f0; border-color: #94a3b8; color: #475569; }
+
+.card{
+  background:var(--card-bg); border-radius:22px; padding:28px;
+  box-shadow:0 14px 35px var(--shadow); text-align: center;
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1px solid var(--border);
+}
+
+.salawat-wrapper {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+}
+.salawat-card-badge {
+  background: linear-gradient(135deg, rgba(15, 76, 129, 0.08), rgba(14, 165, 233, 0.08));
+  border: 2px dashed var(--primary);
+  color: var(--text);
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px var(--shadow);
+  animation: pulseGlow 2.5s infinite alternate;
+  direction: rtl;
+}
+@keyframes pulseGlow {
+  0% { transform: scale(1); box-shadow: 0 4px 15px var(--shadow); }
+  100% { transform: scale(1.03); box-shadow: 0 6px 22px rgba(14, 165, 233, 0.25); }
+}
+:root[data-theme="dark"] .salawat-card-badge {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(14, 165, 233, 0.12));
+}
+
+.main-mode-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  margin: 20px 0;
+}
+.main-choice-btn {
+  width: 100%;
+  max-width: 450px;
+  padding: 18px 24px;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: rtl;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 16px var(--shadow);
+  border: 2px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+}
+.main-choice-btn:hover {
+  transform: translateY(-3px);
+}
+.main-choice-btn.lectures-trigger {
+  border-left: 6px solid var(--primary);
+}
+.main-choice-btn.lectures-trigger:hover {
+  border-color: var(--secondary);
+  box-shadow: 0 8px 24px rgba(14, 165, 233, 0.2);
+}
+.main-choice-btn.exam-trigger {
+  border-left: 6px solid #f59e0b;
+}
+.main-choice-btn.exam-trigger:hover {
+  border-color: #f59e0b;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.25);
+}
+
+.dataset-selector {
+ margin: 0 0 18px 0;
+ display: flex;
+ flex-direction: column;
+ gap: 10px;
+ align-items: center;
+}
+.dataset-title {
+ font-size: 15px;
+ font-weight: 800;
+ color: var(--primary);
+ direction: rtl;
+}
+
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  max-width: 450px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  border: 2px solid var(--border);
+  font-size: 15px;
+  background: var(--soft) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2364748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>') no-repeat;
+  background-position: left 16px center;
+  color: var(--text);
+  font-weight: 700;
+  direction: rtl;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+.custom-select:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+  background-color: var(--card-bg);
+}
+.custom-select option {
+  font-weight: bold;
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.mode-selector {
+ margin: 20px 0 25px 0;
+ display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+.mode-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--soft);
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: 2px solid var(--border);
+  cursor: pointer;
+  width: 100%;
+  max-width: 450px;
+  text-align: right;
+  direction: rtl;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.mode-option input { scale: 1.3; cursor: pointer; margin-left: 10px; }
+.mode-option:hover { border-color: var(--secondary); }
+.mode-option:has(input:checked) {
+  border-color: var(--secondary);
+  background: rgba(14, 165, 233, 0.08);
+}
+
+.start-btn {
+  padding: 16px 50px; font-size: 18px; font-weight: 700; color: #fff;
+  background: linear-gradient(135deg, var(--success), #16a34a); border: none; border-radius: 16px;
+  cursor: pointer; transition: all 0.2s ease; width: 100%; max-width: 450px;
+  display: block; margin: 10px auto;
+}
+.start-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(34, 197, 94, 0.35); }
+
+.back-btn {
+  padding: 12px 30px; font-size: 15px; font-weight: 700; color: var(--text);
+  background: var(--soft); border: 2px solid var(--border); border-radius: 14px;
+  cursor: pointer; transition: all 0.2s; width: 100%; max-width: 450px;
+  display: block; margin: 12px auto;
+}
+.back-btn:hover { background: var(--border); transform: translateY(-1px); }
+
+.resume-btn {
+  padding: 14px 30px; font-size: 16px; font-weight: 700; color: var(--primary);
+  background: transparent; border: 2px solid var(--primary); border-radius: 16px;
+  cursor: pointer; transition: all 0.2s ease; display: none; width: 100%; max-width: 450px;
+  display: block; margin: 12px auto;
+}
+.resume-btn:hover { background: var(--primary); color: #fff; }
+
+.timer-box {
+  display: none;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 800;
+  color: var(--danger);
+  box-shadow: 0 4px 12px var(--shadow);
+  text-align: center;
+  margin: 10px auto 20px auto;
+  width: fit-content;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.progress{ height:10px; background:var(--border); border-radius:999px; overflow:hidden; margin-bottom:18px;}
+.progress span{
+  display:block; height:100%; width:0%;
+  background:linear-gradient(90deg, var(--secondary), var(--success));
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.question-box{
+  background: var(--soft);
+  border-left:6px solid var(--secondary); border-radius:18px; padding:22px; text-align: left;
+}
+
+.q-tools-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--border);
+}
+.q-badge {
+  background: var(--primary);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.q-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.question { font-size:19px; font-weight:600; line-height: 1.5; width: 100%; display: block; word-wrap: break-word; }
+
+.kw-highlight {
+  background-color: #fef08a;
+  color: #854d0e;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: #ca8a04;
+  text-decoration-thickness: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+:root[data-theme="dark"] .kw-highlight {
+  background-color: #713f12;
+  color: #fef08a;
+  text-decoration-color: #eab308;
+}
+
+#speakBtn, #stopSpeakBtn, #translateBtn { background: none; border: none; font-size: 20px; cursor: pointer; padding: 0; line-height: 1; transition: transform 0.2s; }
+#speakBtn:hover, #stopSpeakBtn:hover, #translateBtn:hover { transform: scale(1.2); }
+
+#flagBtn { background: none; border: none; font-size: 22px; cursor: pointer; padding: 0; line-height: 1; transition: transform 0.2s; filter: grayscale(1); }
+#flagBtn:hover { transform: scale(1.2); }
+#flagBtn.active { filter: grayscale(0) drop-shadow(0 0 4px #f59e0b) !important; transform: scale(1.1); }
+
+.translation-box {
+  display: none;
+  margin-top: 18px;
+  padding: 16px;
+  background: var(--card-bg);
+  border-right: 4px solid var(--secondary);
+  border-radius: 12px;
+  direction: rtl;
+  text-align: right;
+  box-shadow: inset 0 2px 6px var(--shadow), 0 2px 8px var(--shadow);
+  animation: popIn 0.3s ease;
+}
+.trans-title { font-weight: bold; color: var(--secondary); margin-bottom: 8px; font-size: 14px; }
+.trans-q { font-size: 16px; font-weight: 600; margin-bottom: 12px; line-height: 1.5; color: var(--text); }
+.trans-o-list { margin: 0; padding-right: 20px; font-size: 15px; color: #475569; line-height: 1.7; }
+
+.options button{
+  width:100%; padding:16px; margin-bottom:12px; border-radius:14px;
+  border:2px solid var(--border); background:var(--card-bg); color: var(--text);
+  font-size:16px; text-align: left; cursor:pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.options button:not(:disabled):hover {
+  transform: translateY(-2px); border-color: var(--secondary);
+  box-shadow: 0 6px 16px rgba(14, 165, 233, 0.15);
+}
+.options button.correct{background:#ecfdf5 !important; border-color:var(--success) !important; color: #065f46 !important; font-weight: 700;}
+.options button.wrong{background:#fef2f2 !important; border-color:var(--danger) !important; color: #991b1b !important; font-weight: 700;}
+.options button.selected-exam { background: #e0f2fe !important; border-color: var(--secondary) !important; color: #0369a1 !important; font-weight: 700; }
+
+.nav{ display:flex; gap:12px; margin-top:26px;}
+.nav button{
+  flex:1; padding:14px; border-radius:14px; font-size:15px; font-weight:700; cursor:pointer; transition: all 0.2s;
+}
+.prev{background:var(--card-bg); border:2px solid var(--border); color: var(--text);}
+.prev:hover{background: var(--soft); transform: translateY(-1px);}
+.next{ border:none; color:#fff; background:linear-gradient(135deg,var(--primary),var(--secondary));}
+.next:hover{opacity: 0.95; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(15, 76, 129, 0.2);}
+
+.extra-nav { display: flex; gap: 12px; margin-top: 12px; }
+.extra-nav button { flex: 1; padding: 12px; border-radius: 14px; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+.home-btn { background: var(--card-bg); border: 2px solid var(--border); color: var(--text); }
+.home-btn:hover { background: var(--soft); transform: translateY(-1px); }
+.finish-btn { background: linear-gradient(135deg, var(--danger), #b91c1c); border: none; color: #fff; }
+.finish-btn:hover { opacity: 0.95; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2); }
+
+.result-msg { font-size: 18px; margin-bottom: 10px; line-height: 1.6; }
+.duck-msg { display: block; margin-top: 15px; font-weight: 800; color: var(--primary); font-size: 20px;}
+.stats-container {
+  display: flex; justify-content: space-around; background: var(--soft);
+  padding: 16px; border-radius: 16px; margin: 20px 0; border: 1px solid var(--border);
+}
+.stat-box { text-align: center; }
+.stat-val { font-size: 24px; font-weight: 800; }
+.stat-lbl { font-size: 13px; color: #64748b; margin-top: 4px; }
+.score{ font-size:48px; font-weight:900; color:var(--success); margin: 10px 0; text-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);}
+.badge-title { font-size: 22px; font-weight: 800; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.result-actions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: 20px auto 0 auto;
+}
+.restart{
+  padding:14px 28px; border:none; border-radius:16px; font-size:16px; font-weight:700;
+  cursor:pointer; color:#fff; background:linear-gradient(135deg,#0f4c81,#0ea5e9); transition: all 0.2s;
+  width: 100%;
+}
+.restart:hover{transform: translateY(-2px); box-shadow: 0 6px 18px rgba(15, 76, 129, 0.35);}
+
+.review-btn {
+  padding: 14px 28px; border: 2px solid var(--success); border-radius: 16px; font-size: 16px; font-weight: 700;
+  cursor: pointer; color: var(--success); background: transparent; transition: all 0.2s;
+  width: 100%; display: none;
+}
+.review-btn:hover { background: var(--success); color: #fff; transform: translateY(-2px); }
+
+.download-btn {
+  padding: 14px 28px; border: 2px solid var(--primary); border-radius: 16px; font-size: 16px; font-weight: 700;
+  cursor: pointer; color: var(--primary); background: transparent; transition: all 0.2s;
+  width: 100%;
+}
+.download-btn:hover { background: var(--primary); color: #fff; transform: translateY(-2px); }
+</style>
+</head>
+<body>
+
+<div class="container">
+    
+    <div class="hero">
+        <h1>Maternal & Newborn Nursing 🤰</h1>
+        <h2>Question app</h2>
+        <p>Prepared by <strong>The Coding Nurse (A&M)🩺💉</strong></p>
+    </div>
+
+    <div class="top-bar">
+        <div class="settings-bar">
+            <button class="setting-btn" id="soundToggle" onclick="toggleSound()"><span>🔊</span> Sound On</button>
+            <button class="setting-btn" id="vibeToggle" onclick="toggleVibration()"><span>📳</span> Vibe On</button>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()"><span>🌓</span> Dark Mode</button>
+    </div>
+
+    <div class="card" id="startCard">
+        
+        <div class="salawat-wrapper">
+            <div class="salawat-card-badge">✨ صلي علي النبي 🤍🐣✨</div>
+        </div>
+        
+        <div id="mainModeMenu" class="main-mode-view">
+            <button class="main-choice-btn lectures-trigger" onclick="selectRootMode('lectures')">
+                <span>📌 📚 أسئله علي المحاضرات </span>
+                <span>⬅️</span>
+            </button>
+            <button class="main-choice-btn exam-trigger" onclick="selectRootMode('comprehensive_exam')">
+                <span>📌 🏆 وضع الامتحان الشامل </span>
+                <span>⭐</span>
+            </button>
+        </div>
+
+        <div id="lecturesSetupContainer" style="display: none;">
+            <div id="highScoreView" style="display:none; font-weight:bold; margin:0 auto 16px auto; color:var(--success); font-size:14px; background:rgba(34, 197, 94, 0.08); padding:8px 16px; border-radius:50px; border:1px dashed var(--success); width:fit-content; direction:rtl;">
+                🏆 أعلى سكور: <span id="highScoreVal">0%</span>
+            </div>
+
+            <div class="dataset-selector">
+                <div class="dataset-title">: Choose the lecture first</div>
+                <select id="datasetDrawer" class="custom-select" onchange="setDataset(this.value)">
+                    <option value="place1">1. Anatomy and physiology of female reproductive system</option>
+                    <option value="place2">2. Physiology of Normal Pregnancy</option>
+                    <option value="place3">3. Antenatal Care</option>
+                    <option value="place4">4. High risk pregnancy</option>
+                    <option value="place5">5. Normal labour & Delivery</option>
+                    <option value="place6">6. Normal Postpartum</option>
+                    <option value="place7">7. Abnormal Postpartum</option>
+                    <option value="place8">8. Gynecological disorders</option>
+                    <option value="place9">9. Family Planning Methods</option>
+                </select>
+            </div>
+
+            <div class="mode-selector">
+                <label class="mode-option">
+                    <input type="radio" name="quizMode" value="sequential" onchange="setMode('sequential')">
+                    <span>🔢 وضع الترتيب (أسئلة واختيارات مرتبة بدون عشوائية)</span>
+                </label>
+                <label class="mode-option">
+                    <input type="radio" name="quizMode" value="study" checked onchange="setMode('study')">
+                    <span>📖 وضع المذاكرة (عشوائي + تصحيح فوري للمعلومات)</span>
+                </label>
+                <label class="mode-option">
+                    <input type="radio" name="quizMode" value="memorize" onchange="setMode('memorize')">
+                    <span>🧠 وضع البصمجة (كشف الإجابة الصحيحه للمراجعه)</span>
+                </label>
+                <label class="mode-option">
+                    <input type="radio" name="quizMode" value="exam" onchange="setMode('exam')">
+                    <span>⏳ وضع الامتحان (عشوائي + تايمر وبدون كشف الإجابات)</span>
+                </label>
+                <label class="mode-option">
+                    <input type="radio" name="quizMode" value="bookmark" onchange="setMode('bookmark')">
+                    <span>🔖 مراجعة الأسئلة المميزة فقط</span>
+                </label>
+            </div>
+
+            <button class="start-btn" onclick="startQuiz()">Start 🚀</button>
+            <button class="back-btn" onclick="selectRootMode('main')">⬅️ العودة للرئيسية</button>
+            <button class="resume-btn" id="resumeBtn" onclick="resumeQuiz()">استكمال محاولة الحل السابقة 🔄</button>
+        </div>
+    </div>
+
+    <div id="quizContainer" style="display:none">
+        <div class="timer-box" id="timerBox">⏳ المتبقي: <span id="timerDisplay">00:00</span></div>
+        <div class="mid-nav" id="midNav"></div>
+        <div class="card" id="quizCard">
+            <div class="progress"><span id="progressBar"></span></div>
+            <div class="question-box">
+                
+                <div class="q-tools-bar">
+                    <span class="q-badge" id="qIndexBadge">Question</span>
+                    <div class="q-actions">
+                        <button id="translateBtn" onclick="toggleTranslation()" title="ترجمة السؤال للعربية" style="display:none;">🌍</button>
+                        <button id="speakBtn" onclick="speakQuestion()" title="بدء النطق من أول وجديد">🔊</button>
+                        <button id="stopSpeakBtn" onclick="toggleSpeechPause()" title="إيقاف مؤقت" style="display:none;">⏸️</button>
+                        <button id="flagBtn" onclick="toggleFlag()" title="Bookmark Question">🔖</button>
+                    </div>
+                </div>
+
+                <div class="question" id="question"></div>
+                
+                <div class="translation-box" id="translationBox">
+                    <div class="trans-title">🎯 الترجمة العربية:</div>
+                    <div class="trans-q" id="transQText"></div>
+                    <ul class="trans-o-list" id="transOList"></ul>
+                </div>
+
+                <div class="options" id="options" style="margin-top: 20px;"></div>
+            </div>
+            
+            <div class="nav">
+                <button class="prev" onclick="prevQ()">⬅ Previous</button>
+                <button class="next" onclick="nextQ()">Next ➡</button>
+            </div>
+            
+            <div class="extra-nav">
+                <button class="home-btn" onclick="goToHome()">🏠 الرئيسية (حفظ)</button>
+                <button class="finish-btn" onclick="showResult()">📊 إنهاء وعرض النتيجة</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card result" id="resultCard" style="display:none">
+        <div class="result-msg" style="color: var(--primary); font-weight: bold;">✨🤍 صلي علي النبي ✨ </div>
+        <div class="result-msg">
+            متزعلش لو نتيجة حلك مكنتش أحسن حاجه خليك ديما فاكر ان لسه فيه فرصه تحاول سمي الله وحاول تاني
+            <span class="duck-msg">( 🐥 أشطر كتكوت يخواشي )</span>
+        </div>
+        
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-val" id="statCorrect" style="color: var(--success);">0</div>
+                <div class="stat-lbl">Correct ✅</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-val" id="statWrong" style="color: var(--danger);">0</div>
+                <div class="stat-lbl">Wrong ❌</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-val" id="statRatio" style="color: var(--secondary);">0%</div>
+                <div class="stat-lbl">Accuracy 🎯</div>
+            </div>
+        </div>
+
+        <h2>Final Result</h2>
+        <div class="score" id="scoreText"></div>
+        <div class="badge-title" id="badgeTitle"></div>
+        
+        <div class="result-actions-container">
+            <button class="review-btn" id="reviewBtn" onclick="startReview()">🔁 مراجعة الأخطاء فقط</button>
+            <button class="download-btn" id="downloadBtn" onclick="downloadResultCard()">📸 تحميل النتيجة كصورة</button>
+            <button class="restart" onclick="restartQuiz()">🔄 Restart Quiz</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+const datasets = {
+  "place1": [
+   {
+      q: "The external reproductive system means the:",
+      o: ["Vagina", "Vulva", "Cervix", "Uterus"],
+      a: 1,
+      trQ: "الجهاز التناسلي الخارجي يعني:",
+      trO: ["المهبل", "الفرج", "عنق الرحم", "الرحم"]
+    },
+    {
+      q: "Each labium major contains a mass of fat and the skin is covered with:",
+      o: ["Mucus", "Hair", "Sweat only", "Nothing"],
+      a: 1,
+      trQ: "كل شفر كبير يحتوي على كتلة من الدهون والجلد مغطى بـ:",
+      trO: ["مخاط", "شعر", "عرق فقط", "لا شيء"]
+    },
+    {
+      q: "Each labium major contains which of the following glands?",
+      o: ["Sweat glands only", "Sebaceous and sweat glands", "Bartholin glands only", "Skene's glands"],
+      a: 1,
+      trQ: "كل شفر كبير يحتوي على أي من الغدد التالية؟",
+      trO: ["غدد عرقية فقط", "غدد دهنية وعرقية", "غدد بارثولين فقط", "غدد سكين"]
+    },
+    {
+      q: "Two thin flaps of pigmented skin lying within the labium major on either side of the vaginal orifice are the:",
+      o: ["Clitoris", "Labia Minora", "Hymen", "Vestibule"],
+      a: 1,
+      trQ: "طيتان رقيقتان من الجلد المصبوغ تقعان داخل الشفرين الكبيرين على جانبي فتحة المهبل هما:",
+      trO: ["البظر", "الشفرين الصغيرين", "غشاء البكارة", "الدهليز"]
+    },
+    {
+      q: "It is the homologue of the penis, lies in front of the symphysis pubis and attached to it by a suspensory ligament:",
+      o: ["Vagina", "Clitoris", "Ovary", "Fallopian tube"],
+      a: 1,
+      trQ: "هو العضو المقابل للقضيب، يقع أمام ارتفاق العانة ومتصل به بواسطة رباط معلق:",
+      trO: ["المهبل", "البظر", "المبيض", "قناة فالوب"]
+    },
+    {
+      q: "Skene's glands are two paraurethral ducts which open in the:",
+      o: ["Floor of the vestibule", "Floor of the urethra a few millimeters from the external meatus", "Cervical canal", "Fallopian tube"],
+      a: 1,
+      trQ: "غدتا سكين هما قناتان مجاورتان للإحليل تفتحان في:",
+      trO: ["قاع الدهليز", "قاع الإحليل على بعد بضعة ملليمترات من الفتحة الخارجية", "قناة عنق الرحم", "قناة فالوب"]
+    },
+    {
+      q: "Bartholin glands are two glands open in the:",
+      o: ["Floor of the urethra", "Floor of the vestibule", "Vaginal introitus", "Uterine cavity"],
+      a: 1,
+      trQ: "غدتا بارثولين هما غدتان تفتحان في:",
+      trO: ["قاع الإحليل", "قاع الدهليز", "مدخل المهبل", "تجويف الرحم"]
+    },
+    {
+      q: "The paraurethral and Bartholin glands are each paired glands whose secretions moisten the vaginal mucosa and raise the pH of the vaginal secretions during sexual intercourse to:",
+      o: ["Kill sperm", "Enhance sperm motility", "Stop menstruation", "Prevent infection"],
+      a: 1,
+      trQ: "غدد سكين وبارثولين هي غدد مزدوجة ترطب إفرازاتها غشاء المهبل وترفع درجة الحموضة للإفرازات المهبلية أثناء الجماع لـ:",
+      trO: ["قتل الحيوانات المنوية", "تعزيز حركة الحيوانات المنوية", "إيقاف الدورة الشهرية", "منع العدوى"]
+    },
+    {
+      q: "Vaginal orifice: refers to vaginal introitus, located posterior to the urethral meatus, and its function is to:",
+      o: ["Secrete hormones", "Accommodate the baby at birth", "Produce ova", "Form the perineum"],
+      a: 1,
+      trQ: "فتحة المهبل: تشير إلى مدخل المهبل، وتقع خلف فتحة الإحليل، وتتمثل وظيفتها في:",
+      trO: ["إفراز الهرمونات", "استيعاب الطفل عند الولادة", "إنتاج البويضات", "تكوين العجان"]
+    },
+    {
+      q: "The most common hymen shape is:",
+      o: ["Imperforate hymen", "Micro perforate hymen", "Septate hymen", "Shaped like a half moon (annular hymen)"],
+      a: 3,
+      trQ: "الشكل الأكثر شيوعاً لغشاء البكارة هو:",
+      trO: ["غشاء بكارة مصمت (غير مفتوح)", "غشاء بكارة دقيق الثقب", "غشاء بكارة حاجز", "على شكل هلال (حلقي)"]
+    },
+    {
+      q: "An imperforate hymen is a thin membrane that:",
+      o: ["Has two small openings", "Completely covers the opening to a young girl's vagina", "Almost completely covers the opening", "Has an extra band of tissue"],
+      a: 1,
+      trQ: "غشاء البكارة المصمت هو غشاء رقيق:",
+      trO: ["له فتحتان صغيرتان", "يغطي تماماً فتحة مهبل الفتاة الصغيرة", "يغطي تقريباً تماماً الفتحة", "يحتوي على حزام إضافي من الأنسجة"]
+    },
+    {
+      q: "A micro perforate hymen is a thin membrane that:",
+      o: ["Completely covers the opening", "Almost completely covers the opening to a young girl's vagina", "Has no membrane at all", "Is shaped like a crescent"],
+      a: 1,
+      trQ: "غشاء البكارة دقيق الثقب هو غشاء رقيق:",
+      trO: ["يغطي الفتحة بالكامل", "يغطي تقريباً تماماً فتحة مهبل الفتاة الصغيرة", "ليس له غشاء على الإطلاق", "على شكل هلال"]
+    },
+    {
+      q: "Septate hymen is when the thin hymnal membrane has:",
+      o: ["No opening", "A band of extra tissue in the middle that causes two small vaginal openings instead of one", "Multiple small holes", "A half-moon shape"],
+      a: 1,
+      trQ: "غشاء البكارة الحاجزي هو عندما يكون غشاء البكارة الرقيق يحتوي على:",
+      trO: ["بدون فتحة", "حزام من الأنسجة الإضافية في المنتصف يسبب فتحتين مهبليتين صغيرتين بدلاً من واحدة", "عدة ثقوب صغيرة", "شكل هلالي"]
+    },
+    {
+      q: "Mons Pubis (Mons veneris) is a mass of fatty tissue covered by skin and hair and overlies the:",
+      o: ["Urinary bladder", "Symphysis pubis", "Perineum", "Vagina"],
+      a: 1,
+      trQ: "جبل العانة هو كتلة من الأنسجة الدهنية تغطيها الجلد والشعر وتستقر فوق:",
+      trO: ["المثانة البولية", "ارتفاق العانة", "العجان", "المهبل"]
+    },
+    {
+      q: "Perineum extends from the fourchette anteriorly to the:",
+      o: ["Clitoris posteriorly", "Anus posteriorly", "Urethra posteriorly", "Coccyx posteriorly"],
+      a: 1,
+      trQ: "يمتد العجان من اللجام الأمامي إلى:",
+      trO: ["البظر في الخلف", "الشرج في الخلف", "الإحليل في الخلف", "العصعص في الخلف"]
+    },
+    {
+      q: "The length of the perineum varies from:",
+      o: ["1 to 2 cm", "2 to 5 cm", "8 to 14 cm", "12 to 15 cm"],
+      a: 1,
+      trQ: "يتراوح طول منطقة العجان من:",
+      trO: ["1 إلى 2 سم", "2 إلى 5 سم", "8 إلى 14 سم", "12 إلى 15 سم"]
+    },
+    {
+      q: "The vagina or birth canal is an elastic fibro muscular tube lined with:",
+      o: ["Simple columnar epithelium", "Stratified squamous epithelium", "Ciliated epithelium", "Transitional epithelium"],
+      a: 1,
+      trQ: "المهبل أو قناة الولادة هو أنبوب ليفي عضلي مرن مبطن بـ:",
+      trO: ["ظهارة عمودية بسيطة", "ظهارة حرشفية مطبقة", "ظهارة هدبية", "ظهارة انتقالية"]
+    },
+    {
+      q: "The vagina is located:",
+      o: ["Anterior to the urinary bladder and posterior to the rectum", "Posterior to the urinary bladder and anterior to the rectum", "Superior to the uterus", "Lateral to the ovaries"],
+      a: 1,
+      trQ: "يقع المهبل:",
+      trO: ["أمام المثانة البولية وخلف المستقيم", "خلف المثانة البولية وأمام المستقيم", "أعلى الرحم", "جانبي المبايض"]
+    },
+    {
+      q: "The normal position of the uterus is:",
+      o: ["Retroverted and retroflexed", "Anteverted (rotated forward) and anteflexed (flexed forward)", "Straight and vertical", "Laterally deviated"],
+      a: 1,
+      trQ: "الوضع الطبيعي للرحم هو:",
+      trO: ["مائل للخلف ومنحني للخلف", "مائل للأمام (مدار للأمام) ومنحني للأمام", "مستقيم ورأسي", "منحرف جانبياً"]
+    },
+    {
+      q: "The dimensions of the non-pregnant uterus (length, width and thickness) respectively are:",
+      o: ["5, 4, 2 cm", "7.5, 5, 2.5 cm", "10, 8, 4 cm", "8 to 14 cm"],
+      a: 1,
+      trQ: "أبعاد الرحم غير الحامل (الطول والعرض والسمك) على التوالي هي:",
+      trO: ["5، 4، 2 سم", "7.5، 5، 2.5 سم", "10، 8، 4 سم", "8 إلى 14 سم"]
+    },
+    {
+      q: "The weight of the uterus in the non-pregnant state is about:",
+      o: ["10-20 gm", "30-40 gm", "50-70 gm", "100-150 gm"],
+      a: 2,
+      trQ: "وزن الرحم في حالة عدم الحمل حوالي:",
+      trO: ["10-20 جرام", "30-40 جرام", "50-70 جرام", "100-150 جرام"]
+    },
+    {
+      q: "The uterine isthmus is the lower portion of the uterus which connects the cervix to the main body. During pregnancy and childbirth the uterine isthmus referred to as the:",
+      o: ["Cervical canal", "Lower uterine segment", "Fallopian tube", "Inner os"],
+      a: 1,
+      trQ: "برزخ الرحم هو الجزء السفلي للرحم الذي يربط عنق الرحم بالجسم الرئيسي. أثناء الحمل والولادة يسمى برزخ الرحم بـ:",
+      trO: ["قناة عنق الرحم", "القطعة السفلية للرحم", "قناة فالوب", "الفوهة الداخلية"]
+    },
+    {
+      q: "The walls of the corpus and fundus are made up of how many layers?",
+      o: ["Two layers", "Three layers", "Four layers", "Five layers"],
+      a: 1,
+      trQ: "جدران جسم وقاع الرحم تتكون من كم طبقة؟",
+      trO: ["طبقتان", "ثلاث طبقات", "أربع طبقات", "خمس طبقات"]
+    },
+    {
+      q: "The outer layer of the uterus, the loose surrounding tissue that cover most of the uterus is called:",
+      o: ["Myometrium", "Endometrium", "Perimetrium", "Isthmus"],
+      a: 2,
+      trQ: "الطبقة الخارجية للرحم، الأنسجة المحيطة الفضفاضة التي تغطي معظم الرحم تسمى:",
+      trO: ["عضل الرحم", "بطانة الرحم", "جدار الرحم الخارجي (بيريميتريوم)", "البرزخ"]
+    },
+    {
+      q: "The middle layer of the uterus, consists of thick smooth muscles, is called:",
+      o: ["Perimetrium", "Myometrium", "Endometrium", "Cervix"],
+      a: 1,
+      trQ: "الطبقة الوسطى للرحم، تتكون من عضلات ملساء سميكة، تسمى:",
+      trO: ["بيريميتريوم", "عضل الرحم (ميوميتريوم)", "بطانة الرحم", "عنق الرحم"]
+    },
+    {
+      q: "The inner layer of the uterus, which builds a lining periodically which if no pregnancy occurs, it is shed, is called:",
+      o: ["Perimetrium", "Myometrium", "Endometrium", "Cortex"],
+      a: 2,
+      trQ: "الطبقة الداخلية للرحم، التي تبني بطانة بشكل دوري وإذا لم يحدث حمل يتم طرحها، تسمى:",
+      trO: ["بيريميتريوم", "ميوميتريوم", "بطانة الرحم (إندوميتريوم)", "قشرة المبيض"]
+    },
+    {
+      q: "Shedding of the endometrium is responsible for menstrual bleeding known as a woman period. This layer is:",
+      o: ["Perimetrium", "Endometrium", "Myometrium", "Medulla"],
+      a: 1,
+      trQ: "طرح بطانة الرحم هو المسؤول عن نزيف الدورة الشهرية المعروف بفترة المرأة. هذه الطبقة هي:",
+      trO: ["بيريميتريوم", "بطانة الرحم", "ميوميتريوم", "نخاع المبيض"]
+    },
+    {
+      q: "Which of the following is considered a function of the uterus?",
+      o: ["Production of ova", "Implantation of fertilized ovum in the endometrium", "Site for fertilization", "Secreting estrogen and progesterone"],
+      a: 1,
+      trQ: "أي مما يلي يعتبر وظيفة للرحم؟",
+      trO: ["إنتاج البويضات", "انغراس البويضة المخصبة في بطانة الرحم", "موقع الإخصاب", "إفراز الاستروجين والبروجسترون"]
+    },
+    {
+      q: "Fallopian tubes are about how long?",
+      o: ["2 to 5 cm", "8-14 cm", "15-20 cm", "25 cm"],
+      a: 1,
+      trQ: "ما هو طول قنوات فالوب تقريباً؟",
+      trO: ["2 إلى 5 سم", "8-14 سم", "15-20 سم", "25 سم"]
+    },
+    {
+      q: "The outer portion of the fallopian tube that opens into the abdominal cavity and contains fimbriae (fingerlike projections) is the:",
+      o: ["Ampulla", "Isthmus", "Infundibulum", "Cervix"],
+      a: 2,
+      trQ: "الجزء الخارجي من قناة فالوب الذي يفتح في تجويف البطن ويحتوي على أهداب (زوائد تشبه الأصابع) هو:",
+      trO: ["الامبولا", "البرزخ", "القمع (إنفانديبولوم)", "عنق الرحم"]
+    },
+    {
+      q: "The middle portion of the fallopian tube, connects the isthmus with the infundibulum and is the widest part about 5 cm in length is the:",
+      o: ["Infundibulum", "Ampulla", "Medulla", "Corpus"],
+      a: 1,
+      trQ: "الجزء الأوسط من قناة فالوب، يربط البرزخ بالقمع وهو أوسع جزء بطول حوالي 5 سم هو:",
+      trO: ["القمع", "الأمبولة", "النخاع", "جسم الرحم"]
+    },
+    {
+      q: "Is the medial portion of the tube that connects to the uterus:",
+      o: ["Infundibulum", "Ampulla", "Isthmus", "Fundus"],
+      a: 2,
+      trQ: "هو الجزء الأوسط للقناة الذي يتصل بالرحم:",
+      trO: ["القمع", "الأمبولة", "البرزخ (إيستمس)", "قاع الرحم"]
+    },
+    {
+      q: "The main function of the Fallopian tubes is to:",
+      o: ["Produce female hormones", "Provide a site for fertilization", "Support the bladder", "Form the birth canal"],
+      a: 1,
+      trQ: "الوظيفة الرئيسية لقنوات فالوب هي:",
+      trO: ["إنتاج الهرمونات الأنثوية", "توفير موقع للإخصاب", "دعم المثانة", "تكوين قناة الولادة"]
+    },
+    {
+      q: "The ovaries, two sex glands, are similar in size and shape to:",
+      o: ["Beans", "Almonds", "Pears", "Apples"],
+      a: 1,
+      trQ: "المبيضان، هما غدتان جنسيتان، متشابهتان في الحجم والشكل مع:",
+      trO: ["الفاصوليا", "اللوز", "الكمثرى", "التفاح"]
+    },
+    {
+      q: "The internal structure of the ovary contains primary follicles in different stages of development. This region is the:",
+      o: ["Medulla", "Hilum", "Cortex", "Isthmus"],
+      a: 2,
+      trQ: "التكوين الداخلي للمبيض يحتوي على بصيلات أولية في مراحل مختلفة من التطور. هذه المنطقة هي:",
+      trO: ["النخاع", "السرة", "القشرة (كورتكس)", "البرزخ"]
+    },
+    {
+      q: "Gives attachment to the mesovarium and through which pass the ovarian vessels, lymphatic and nerves:",
+      o: ["Cortex", "Medulla", "Hilum", "Ampulla"],
+      a: 2,
+      trQ: "يمنح ارتباطاً للمساريق المبيصية ومن خلاله تمر الأوعية المبيصية والأوعية اللمفاوية والأعصاب:",
+      trO: ["القشرة", "النخاع", "السرة (هيلوم)", "الأمبولة"]
+    },
+    {
+      q: "Which of the following is a function of the ovaries?",
+      o: ["Implantation of ovum", "Production and releasing of ova", "Transporting the fetus", "Forming the pelvic floor"],
+      a: 1,
+      trQ: "أي مما يلي يعتبر وظيفة للمبايض؟",
+      trO: ["انغراس البويضة", "إنتاج وإطلاق البويضات", "نقل الجنين", "تكوين قاع الحوض"]
+    },
+    {
+      q: "Secretion of estrogen and progesterone hormones which control the development of female body characteristics in puberty is a function of:",
+      o: ["Uterus", "Ovaries", "Vagina", "Fallopian tubes"],
+      a: 1,
+      trQ: "إفراز هرموني الاستروجين والبروجسترون التي تتحكم في تطور خصائص الجسم الأنثوي في البلوغ هي وظيفة:",
+      trO: ["الرحم", "المبايض", "المهبل", "قنوات فالوب"]
+    },
+    {
+      q: "Each pelvis is composed of:",
+      o: ["One hip bone, two sacrums, one coccyx", "Two hip bones, one sacrum, one coccyx", "Two hip bones, two sacrums, two coccyx", "Three hip bones, one sacrum"],
+      a: 1,
+      trQ: "يتكون كل حوض من:",
+      trO: ["عظمة ورك واحدة، عظمتا عجز، عصعص واحد", "عظمتي ورك، عجز واحد، عصعص واحد", "عظمتي ورك، عظمتا عجز، عصعصان", "ثلاث عظام ورك، عجز واحد"]
+    },
+    {
+      q: "Each hip bone is composed of an ilium, ischium and a:",
+      o: ["Sacrum", "Coccyx", "Pubic bone", "Ischial spine"],
+      a: 2,
+      trQ: "كل عظمة ورك تتكون من الحرقفة، والإسك، و:",
+      trO: ["العجز", "العصعص", "عظمة العانة", "الشوكة الإسكية"]
+    },
+    {
+      q: "The sacrum is a solid bone formed from the five fused sacral vertebrae. One ilium on each side, articulates with the sacrum with a:",
+      o: ["Cartilaginous joint", "Pseudo synovial joint", "Ball and socket joint", "Hinge joint"],
+      a: 1,
+      trQ: "العجز هو عظم صلب يتكون من خمس فقرات عجزية ملتحمة. وتتصل حرقفة واحدة على كل جانب بالعجز عن طريق:",
+      trO: ["مفصل غضروفي", "مفصل شبه زلالي", "مفصل كروي وحق", "مفصل مفصلي"]
+    },
+    {
+      q: "The coccyx is a set of fused bones, numbering:",
+      o: ["1-2", "2-3", "4-5", "6-7"],
+      a: 2,
+      trQ: "العصعص هو مجموعة من العظام الملتحمة، عددها:",
+      trO: ["1-2", "2-3", "4-5", "6-7"]
+    },
+    {
+      q: "True female pelvis, has rounded brim, well-curved sacrum, straight side walls, blunt ischial spines, wide sciatic notch, pubic arch of 90 degrees describes which type of pelvis?",
+      o: ["Android pelvis", "Anthropoid pelvis", "Gynecoid pelvis", "Platypelloid pelvis"],
+      a: 2,
+      trQ: "الحوض الأنثوي الحقيقي، له حافة مستديرة، عجز منحني جيداً، جدران جانبية مستقيمة، أشواك إسكية غير حادة، ثلم وركي واسع، قوس عاني 90 درجة، يصف أي نوع من الحوض؟",
+      trO: ["حوض أندرويد (الذكوري)", "حوض أنتروبويد", "حوض جينويد (الأنثوي)", "حوض بلاتيبلويد"]
+    },
+    {
+      q: "Male pelvis, has heart-shaped brim, side walls converge, narrow sciatic notch, the ischial spine are prominent, and the angle of the pubic arch is less 90 degrees:",
+      o: ["Gynecoid pelvis", "Android pelvis", "Anthropoid pelvis", "Platypelloid pelvis"],
+      a: 1,
+      trQ: "الحوض الذكري، له حافة على شكل قلب، الجدران الجانبية تتقارب، ثلم وركي ضيق، الشوكة الإسكية بارزة، وزاوية القوس العاني أقل من 90 درجة:",
+      trO: ["حوض جينويد", "حوض أندرويد", "حوض أنتروبويد", "حوض بلاتيبلويد"]
+    },
+    {
+      q: "Pelvis that has long, oval brim, the anteroposterior diameter is longer than the transverse, very wide sciatic notch:",
+      o: ["Android pelvis", "Gynecoid pelvis", "Anthropoid pelvis", "Platypelloid pelvis"],
+      a: 2,
+      trQ: "الحوض الذي له حافة بيضاوية طويلة، والقطر الأمامي الخلفي أطول من العرضي، وثلم وركي واسع جداً:",
+      trO: ["حوض أندرويد", "حوض جينويد", "حوض أنتروبويد", "حوض بلاتيبلويد"]
+    },
+    {
+      q: "Pelvis that has kidney-shaped brim, the anteroposterior diameter is reduced and the transverse increased, wide sciatic notch:",
+      o: ["Gynecoid pelvis", "Android pelvis", "Anthropoid pelvis", "Platypelloid pelvis"],
+      a: 3,
+      trQ: "الحوض الذي له حافة على شكل كلى، والقطر الأمامي الخلفي منخفض والعرضي مزار، وثلم وركي واسع:",
+      trO: ["حوض جينويد", "حوض أندرويد", "حوض أنتروبويد", "حوض بلاتيبلويد (المفلطح)"]
+    },
+    {
+      q: "How many pelvic joints are there?",
+      o: ["Two joints", "Three joints", "Four joints", "Five joints"],
+      a: 1,
+      trQ: "كم عدد مفاصل الحوض الموجودة؟",
+      trO: ["مفصلان", "ثلاثة مفاصل", "أربعة مفاصل", "خمسة مفاصل"]
+    },
+    {
+      q: "Between the two pubic bones at the front of the pelvis is the:",
+      o: ["Sacro-iliac joint", "Symphysis pubis", "Sacrococcygeal joint", "Hip joint"],
+      a: 1,
+      trQ: "بين عظمتي العانة في مقدمة الحوض يوجد:",
+      trO: ["المفصل الحرقفي العجزي", "ارتفاق العانة", "المفصل العجزي العصعصي", "مفصل الورك"]
+    },
+    {
+      q: "The pelvic floor muscles are tightly slung between the tailbone (coccyx) and pubic bone, and support the bowel, bladder, uterus and vagina. Muscular bands (sphincters) encircle the:",
+      o: ["Urethra, vagina and anus as they pass the pelvic floor", "Fallopian tubes only", "Ovaries and cervix", "Ilium and ischium"],
+      a: 0,
+      trQ: "عضلات قاع الحوض مشدودة بإحكام بين العصعص وعظمة العانة، وتدعم الأمعاء والمثانة والرحم والمهبل. الأربطة العضلية (العضلة العاصرة) تحيط بـ:",
+      trO: ["الإحليل والمهبل والشرج أثناء مرورها في قاع الحوض", "قنوات فالوب فقط", "المبايض وعنق الرحم", "الحرقفة والإسك"]
+    },
+    {
+      q: "Which of the following is considered a function of the pelvic floor?",
+      o: ["Producing ova", "Preventing prolapse", "Secreting hormones", "Forming the amnion"],
+      a: 1,
+      trQ: "أي مما يلي يعتبر وظيفة لقاع الحوض؟",
+      trO: ["إنتاج البويضات", "منع التدلي (البرولابس)", "إفراز الهرمونات", "تكوين السائل الأمينوسي"]
+    },
+    {
+      q: "True or False: The external reproductive system means the vulva.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: الجهاز التناسلي الخارجي يعني الفرج.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Each labium major contains a mass of fat and the skin is covered with hair.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: كل شفر كبير يحتوي على كتلة من الدهون والجلد مغطى بالشعر.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Skene's glands and Bartholin glands are each paired glands whose secretions moisten the vaginal mucosa.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: غدد سكين وبارثولين هي غدد مزدوجة ترطب إفرازاتها الغشاء المخاطي للمهبل.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The secretions of Bartholin and Skene's glands raise the pH of vaginal secretions during sexual intercourse to enhance sperm motility.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: إفرازات غدد بارثولين وسكين ترفع حموضة الإفرازات المهبلية أثناء الجماع لتعزيز حركة الحيوانات المنوية.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The most common hymen shape is the imperforate hymen.",
+      o: ["True", "False"],
+      a: 1,
+      trQ: "صح أم خطأ: الشكل الأكثر شيوعاً لغشاء البكارة هو غشاء البكارة المصمت.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: An imperforate hymen is a thin membrane that completely covers the opening to a young girl's vagina, preventing menstrual blood from flowing out.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: غشاء البكارة المصمت هو غشاء رقيق يغطي تماماً فتحة المهبل مما يمنع خروج دم الحيض.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Septate hymen means the hymnal membrane has a band of extra tissue in the middle causing two small vaginal openings instead of one.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: غشاء البكارة الحاجزي يعني وجود شريط من الأنسجة الإضافية في المنتصف يسبب فتحتين صغيرتين بدلاً من واحدة.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The perineum extends from the fourchette anteriorly to the anus posteriorly.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: يمتد العجان من اللجام الأمامي إلى الشرج في الخلف.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The vagina or birth canal is an elastic fibro muscular tube lined with stratified squamous epithelium.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: المهبل هو أنبوب ليفي عضلي مرن مبطن بظهارة حرشفية مطبقة.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The normal position of the uterus is retroverted and retroflexed.",
+      o: ["True", "False"],
+      a: 1,
+      trQ: "صح أم خطأ: الوضع الطبيعي للرحم هو المائل للخلف والمنحني للخلف.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The weight of the uterus in the non-pregnant state is about 50-70 gm.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: وزن الرحم في حالة عدم الحمل حوالي 50-70 جرام.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: During pregnancy and childbirth, the uterine isthmus is referred to as the lower uterine segment.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: أثناء الحمل والولادة، يُشار إلى برزخ الرحم بالقطعة السفلية للرحم.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The middle layer of the uterus is called the myometrium and consists of thick smooth muscles.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: الطبقة الوسطى من الرحم تسمى ميوميتريوم وتتكون من عضلات ملساء سميكة.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Shedding of the perimetrium layer is responsible for menstrual bleeding known as a woman period.",
+      o: ["True", "False"],
+      a: 1,
+      trQ: "صح أم خطأ: طرح طبقة البيريميتريوم هو المسؤول عن نزيف الدورة الشهرية.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: One of the main functions of the uterus is the implantation of the fertilized ovum in the endometrium.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: إحدى الوظائف الرئيسية للرحم هي انغراس البويضة المخصبة في بطانة الرحم.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Fallopian tubes are about 8-14 cm long and are lined with ciliated epithelia.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: طول قنوات فالوب حوالي 8-14 سم ومبطنة بظهارة هدبية.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The ampulla is the medial portion of the fallopian tube that connects directly to the uterus.",
+      o: ["True", "False"],
+      a: 1,
+      trQ: "صح أم خطأ: الأمبولة هي الجزء الأوسط من قناة فالوب الذي يتصل مباشرة بالرحم.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The primary function of the fallopian tubes is to provide a site for fertilization.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: الوظيفة الرئيسية لقنوات فالوب هي توفير موقع للإخصاب.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The ovaries are two sex glands located on either side of the uterus, similar in size and shape to almonds.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: المبيضان هما غدتان جنسيتان على جانبي الرحم يشبهان اللوز في الحجم والشكل.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: Each pelvis is composed of two hip bones, one sacrum, and one coccyx.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: يتكون كل حوض من عظمتي ورك وعجز واحد وعصعص واحد.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The coccyx is a set of fused bones, 4-5 in number that articulate with the sacrum.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: العصعص هو مجموعة عظام ملتحمة من 4-5 عظام تتصل بالعجز.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The Gynecoid pelvis is considered the true female pelvis, having a rounded brim and a pubic arch of 90 degrees.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: حوض جينويد يعتبر الحوض الأنثوي الحقيقي، وله حافة مستديرة وقوس عاني 90 درجة.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: There are four pelvic joints in the human body.",
+      o: ["True", "False"],
+      a: 1,
+      trQ: "صح أم خطأ: يوجد أربعة مفاصل في حوض الإنسان.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: The pelvic floor muscles help in the maintenance of continence as part of the urinary and anal sphincters.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: تساعد عضلات قاع الحوض في الحفاظ على التبول والتبرز كجزء من العضلات العاصرة البولية والشرجية.",
+      trO: ["صح", "خطأ"]
+    },
+    {
+      q: "True or False: One of the important functions of the pelvic floor is to prevent prolapse.",
+      o: ["True", "False"],
+      a: 0,
+      trQ: "صح أم خطأ: إحدى الوظائف الهامة لقاع الحوض هي منع التدلي (البرولابس).",
+      trO: ["صح", "خطأ"]
+    } 
+  ],
+  "place2": [],
+  "place3": [],
+  "place4": [],
+  "place5": [],
+  "place6": [],
+  "place7": [],
+  "place8": [],
+  "place9": []
+}; 
+let quiz = []; 
+let answers = []; 
+let i=0, score=0;
+let currentMode = 'study'; 
+let currentDataset = 'place1'; 
+let timerInterval;
+let isReviewMode = false;
+let isComprehensiveExamMode = false;
+
+let soundEnabled = true;
+let vibrationEnabled = true;
+let autoAdvanceTimeout;
+let audioCtx = null; 
+
+const qDiv=document.getElementById("question"),
+      oDiv=document.getElementById("options"),
+      progress=document.getElementById("progressBar"),
+      midNav=document.getElementById("midNav"),
+      quizContainer=document.getElementById("quizContainer"),
+      startCard=document.getElementById("startCard"),
+      resultCard=document.getElementById("resultCard"),
+      scoreText=document.getElementById("scoreText");
+
+function getDatasetLabel(dataset) {
+    if (dataset === 'all') return "الامتحان الشامل";
+    const drawer = document.getElementById("datasetDrawer");
+    if(drawer) {
+        const selectedOption = drawer.querySelector(`option[value="${dataset}"]`);
+        if(selectedOption) return selectedOption.textContent;
+    }
+    return dataset;
+}
+
+function playAudioTone(type) {
+    if(!soundEnabled) return; 
+    try {
+        if (!audioCtx) { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+        if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+        const oscillator = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        oscillator.connect(gainNode); gainNode.connect(audioCtx.destination);
+        
+        if(type === 'correct') {
+            oscillator.frequency.setValueAtTime(523.25, audioCtx.currentTime); 
+            oscillator.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.08); 
+            gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+            oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.25);
+        } else if(type === 'wrong') {
+            oscillator.type = 'sawtooth'; oscillator.frequency.setValueAtTime(140, audioCtx.currentTime);
+            gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime); gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+            oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.35);
+        } else if(type === 'click') {
+            oscillator.frequency.setValueAtTime(380, audioCtx.currentTime); gainNode.gain.setValueAtTime(0.08, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.06);
+            oscillator.start(); oscillator.stop(audioCtx.currentTime + 0.06);
+        }
+    } catch(e) { console.log("Audio issue handled."); }
+}
+
+function triggerHaptic(type) {
+    if (!vibrationEnabled) return; 
+    if (navigator.vibrate) {
+        if (type === 'correct') navigator.vibrate(70);
+        else if (type === 'wrong') navigator.vibrate([100, 60, 100]);
+        else if (type === 'click') navigator.vibrate(35);
+    }
+}
+
+function toggleSound() {
+    soundEnabled = !soundEnabled;
+    document.getElementById("soundToggle").innerHTML = soundEnabled ? "<span>🔊</span> Sound On" : "<span>🔇</span> Sound Off";
+}
+
+function toggleVibration() {
+    vibrationEnabled = !vibrationEnabled;
+    document.getElementById("vibeToggle").innerHTML = vibrationEnabled ? "<span>📳</span> Vibe On" : "<span>📴</span> Vibe Off";
+}
+
+function setMode(mode) { currentMode = mode; showHighScore(); }
+function setDataset(dataset) { currentDataset = dataset; showHighScore(); }
+
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', targetTheme);
+  document.querySelector('.theme-toggle').innerHTML = targetTheme === 'dark' ? '<span>☀️</span> Light Mode' : '<span>🌓</span> Dark Mode';
+}
+
+function prepareQuizData(shouldShuffle) {
+    quiz.forEach(q => {
+        q.combinedOptions = q.o.map((enText, idx) => ({
+            en: enText,
+            ar: q.trO && q.trO[idx] ? q.trO[idx] : ""
+        }));
+    });
+    
+    if(shouldShuffle) {
+        for (let currentIdx = quiz.length - 1; currentIdx > 0; currentIdx--) {
+            const randomIdx = Math.floor(Math.random() * (currentIdx + 1));
+            [quiz[currentIdx], quiz[randomIdx]] = [quiz[randomIdx], quiz[currentIdx]];
+        }
+        quiz.forEach(q => {
+            for (let j = q.combinedOptions.length - 1; j > 0; j--) {
+                const r = Math.floor(Math.random() * (j + 1));
+                [q.combinedOptions[j], q.combinedOptions[r]] = [q.combinedOptions[r], q.combinedOptions[j]];
+            }
+        });
+    }
+}
+
+function startTimer() {
+    clearInterval(timerInterval);
+    let totalSeconds = isComprehensiveExamMode ? 3600 : quiz.length * 30; 
+    const timerDisplay = document.getElementById("timerDisplay");
+    document.getElementById("timerBox").style.display = "block";
+    
+    function refreshTimerView() {
+        let mins = Math.floor(totalSeconds / 60);
+        let secs = totalSeconds % 60;
+        timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+    
+    refreshTimerView();
+    timerInterval = setInterval(() => {
+        totalSeconds--;
+        if(totalSeconds <= 0) { clearInterval(timerInterval); showResult(); } else { refreshTimerView(); }
+    }, 1000);
+}
+
+function getFlaggedTexts() { return JSON.parse(localStorage.getItem("theCodingNurse_flagged_questions") || "[]"); }
+
+function speakQuestion() {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel(); 
+        let structuredText = `Question number ${i + 1}: ${quiz[i].q}. `;
+        quiz[i].combinedOptions.forEach((opObj, idx) => { structuredText += `Choice number ${idx + 1}: ${opObj.en}. `; });
+        const utterance = new SpeechSynthesisUtterance(structuredText);
+        utterance.lang = 'en-US'; utterance.rate = 0.88;
+        utterance.onstart = () => {
+            const stopBtn = document.getElementById("stopSpeakBtn");
+            stopBtn.style.display = "inline-block"; stopBtn.innerHTML = "⏸️";
+        };
+        const resetAudioUI = () => { document.getElementById("stopSpeakBtn").style.display = "none"; };
+        utterance.onend = resetAudioUI; utterance.onerror = resetAudioUI;
+        window.speechSynthesis.speak(utterance);
+    }
+}
+
+function toggleSpeechPause() {
+    if ('speechSynthesis' in window) {
+        const stopBtn = document.getElementById("stopSpeakBtn");
+        if (window.speechSynthesis.speaking) {
+            if (window.speechSynthesis.paused) { window.speechSynthesis.resume(); stopBtn.innerHTML = "⏸️"; } 
+            else { window.speechSynthesis.pause(); stopBtn.innerHTML = "▶️"; }
+        }
+    }
+}
+
+function forceStopSpeechEngine() {
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const stopBtn = document.getElementById("stopSpeakBtn");
+        if (stopBtn) stopBtn.style.display = "none";
+    }
+}
+
+function toggleTranslation() {
+    const tBox = document.getElementById("translationBox");
+    tBox.style.display = (tBox.style.display === "block") ? "none" : "block";
+}
+
+function selectRootMode(rootMode) {
+    const mainMenu = document.getElementById("mainModeMenu");
+    const lecturesSetup = document.getElementById("lecturesSetupContainer");
+    
+    if (rootMode === 'lectures') {
+        mainMenu.style.display = "none";
+        lecturesSetup.style.display = "block";
+        isComprehensiveExamMode = false;
+        checkSavedProgress();
+        showHighScore();
+    } else if (rootMode === 'main') {
+        mainMenu.style.display = "flex";
+        lecturesSetup.style.display = "none";
+        isComprehensiveExamMode = false;
+    } else if (rootMode === 'comprehensive_exam') {
+        isComprehensiveExamMode = true;
+        currentMode = 'exam';
+        startComprehensiveExamSession();
+    }
+}
+
+function startComprehensiveExamSession() {
+    let allMergedQuestions = [];
+    
+    for (let key in datasets) {
+        if (datasets.hasOwnProperty(key) && Array.isArray(datasets[key]) && datasets[key].length > 0) {
+            datasets[key].forEach(q => {
+                allMergedQuestions.push(JSON.parse(JSON.stringify(q)));
+            });
+        }
+    }
+
+    if (allMergedQuestions.length === 0) {
+        alert("⚠️ لا توجد أي أسئلة مضافة حتى الآن في المحاضرات! يرجى إضافة أسئلة أولاً.");
+        selectRootMode('main');
+        return;
+    }
+
+    for (let idx = allMergedQuestions.length - 1; idx > 0; idx--) {
+        const randomIdx = Math.floor(Math.random() * (idx + 1));
+        [allMergedQuestions[idx], allMergedQuestions[randomIdx]] = [allMergedQuestions[randomIdx], allMergedQuestions[idx]];
+    }
+
+     quiz = allMergedQuestions.slice(0, 100);
+
+    quiz.forEach(q => {
+        q.combinedOptions = q.o.map((enText, idx) => ({
+            en: enText,
+            ar: q.trO && q.trO[idx] ? q.trO[idx] : ""
+        }));
+        for (let j = q.combinedOptions.length - 1; j > 0; j--) {
+            const r = Math.floor(Math.random() * (j + 1));
+            [q.combinedOptions[j], q.combinedOptions[r]] = [q.combinedOptions[r], q.combinedOptions[j]];
+        }
+    });
+
+    answers = new Array(quiz.length).fill(null);
+    i = 0; score = 0;
+    localStorage.removeItem("theCodingNurse_quiz_progress");
+
+    midNav.innerHTML = "";
+    quiz.forEach((_, idx) => {
+      const b = document.createElement("button");
+      b.textContent = idx + 1; b.className = "q-btn";
+      b.onclick = () => { i = idx; load(); };
+      midNav.appendChild(b);
+    });
+
+    startCard.style.display = "none"; 
+    quizContainer.style.display = "block";
+    startTimer();
+    load();
+}
+
+function startQuiz() {
+    let selectedBank = [];
+
+    if (currentDataset === 'all') {
+        for (let key in datasets) {
+            if (datasets.hasOwnProperty(key) && Array.isArray(datasets[key])) {
+                selectedBank = selectedBank.concat(datasets[key]);
+            }
+        }
+        selectedBank = JSON.parse(JSON.stringify(selectedBank));
+    } else {
+        selectedBank = JSON.parse(JSON.stringify(datasets[currentDataset] || []));
+    }
+
+    if(selectedBank.length === 0) {
+        alert("⚠️ لا توجد أسئلة متوفرة في هذه المحاضرة حالياً!");
+        return;
+    }
+
+    if (currentMode === 'bookmark') {
+        let flagged = getFlaggedTexts();
+        quiz = selectedBank.filter(q => flagged.includes(q.q));
+        if (quiz.length === 0) {
+            alert("❌ لا توجد أسئلة مميزة بـ 🔖 في هذا القسم!");
+            return;
+        }
+        prepareQuizData(false);
+        localStorage.removeItem("theCodingNurse_quiz_progress");
+    } else if(!isReviewMode) {
+        quiz = selectedBank;
+        let doShuffle = (currentMode !== 'sequential' && currentMode !== 'memorize');
+        prepareQuizData(doShuffle); 
+        localStorage.removeItem("theCodingNurse_quiz_progress"); 
+    }
+    answers = new Array(quiz.length).fill(null);
+    
+    midNav.innerHTML = "";
+    quiz.forEach((_, idx) => {
+      const b = document.createElement("button");
+      b.textContent = idx + 1; b.className = "q-btn";
+      b.onclick = () => { i = idx; load(); };
+      midNav.appendChild(b);
+    });
+
+    startCard.style.display = "none"; quizContainer.style.display = "block";
+    if(currentMode === 'exam') { startTimer(); } else { document.getElementById("timerBox").style.display = "none"; }
+    load();
+}
+
+function updateMidNav(){
+  let flagged = getFlaggedTexts();
+  document.querySelectorAll(".q-btn").forEach((el,idx)=>{
+    el.classList.remove("active","correct","wrong","answered-exam","flagged");
+    if(idx===i) el.classList.add("active");
+    if(quiz[idx] && flagged.includes(quiz[idx].q)) el.classList.add("flagged");
+    
+    if(quiz[idx] && quiz[idx].userPick !== undefined) {
+        if(isComprehensiveExamMode || currentMode === 'exam') { 
+            el.classList.add("answered-exam"); 
+        } else if(currentMode === 'study' || currentMode === 'sequential' || currentMode === 'bookmark' || currentMode === 'memorize') {
+            if(answers[idx]===true) el.classList.add("correct");
+            if(answers[idx]===false) el.classList.add("wrong");
+        }
+    }
+  });
+}
+
+function toggleFlag() {
+    if(quiz[i]) {
+        let flagged = getFlaggedTexts();
+        const qText = quiz[i].q;
+        if(flagged.includes(qText)) {
+            flagged = flagged.filter(t => t !== qText); quiz[i].isFlagged = false;
+        } else {
+            flagged.push(qText); quiz[i].isFlagged = true;
+        }
+        localStorage.setItem("theCodingNurse_flagged_questions", JSON.stringify(flagged));
+        document.getElementById("flagBtn").classList.toggle("active", quiz[i].isFlagged);
+        updateMidNav(); saveProgress();
+    }
+}
+
+function load(){
+  if(quiz.length === 0) return;
+  clearTimeout(autoAdvanceTimeout); forceStopSpeechEngine(); 
+  document.getElementById("translationBox").style.display = "none";
+
+  const qCard = document.getElementById("quizCard");
+  qCard.style.animation = 'none'; qCard.offsetHeight; 
+  qCard.style.animation = 'popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+
+  let qText = quiz[i].q;
+  if (currentMode === 'memorize' && quiz[i].kw) {
+      const safeKw = quiz[i].kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${safeKw})`, 'gi');
+      qText = qText.replace(regex, `<span class="kw-highlight">$1</span>`);
+  }
+  
+  qDiv.innerHTML = qText;
+  document.getElementById("qIndexBadge").textContent = `Q: ${i + 1} / ${quiz.length}`;
+  
+  const correctIdx = quiz[i].combinedOptions.findIndex(opt => opt.en === quiz[i].o[quiz[i].a]);
+  const transBtn = document.getElementById("translateBtn");
+  
+  if(quiz[i].trQ) {
+      transBtn.style.display = "inline-block";
+      document.getElementById("transQText").textContent = quiz[i].trQ;
+      const transOList = document.getElementById("transOList"); transOList.innerHTML = "";
+      quiz[i].combinedOptions.forEach(optObj => {
+          if(optObj.ar) { const li = document.createElement("li"); li.textContent = optObj.ar; transOList.appendChild(li); }
+      });
+  } else { transBtn.style.display = "none"; }
+  
+  let flagged = getFlaggedTexts();
+  quiz[i].isFlagged = flagged.includes(quiz[i].q);
+  document.getElementById("flagBtn").classList.toggle("active", !!quiz[i].isFlagged);
+  
+  oDiv.innerHTML=""; progress.style.width=((i+1)/quiz.length)*100+"%"; updateMidNav();
+  
+  quiz[i].combinedOptions.forEach((opObj,idx)=>{
+    const b = document.createElement("button"); b.textContent = opObj.en;
+    
+    if (currentMode === 'memorize' && quiz[i].userPick === undefined) {
+        if (idx === correctIdx) { b.classList.add("correct"); b.style.borderWidth = "3px"; } 
+        else { b.style.opacity = "0.4"; b.disabled = true; }
+    }
+    if(quiz[i].userPick !== undefined) {
+        b.disabled=true;
+        if(isComprehensiveExamMode) {
+            if(idx === quiz[i].userPick) b.classList.add("selected-exam");
+        } else if(currentMode === 'study' || currentMode === 'sequential' || currentMode === 'bookmark' || currentMode === 'memorize') {
+            if(idx===correctIdx) b.classList.add("correct");
+            else if(idx === quiz[i].userPick) b.classList.add("wrong");
+        } else { if(idx === quiz[i].userPick) b.classList.add("selected-exam"); }
+    }
+    b.onclick=()=>answer(idx,b); oDiv.appendChild(b);
+  });
+}
+
+function answer(idx,btn){
+  if(quiz[i].userPick !== undefined) return;
+  quiz[i].userPick = idx;
+  document.querySelectorAll(".options button").forEach(b=>b.disabled=true);
+  const correctIdx = quiz[i].combinedOptions.findIndex(opt => opt.en === quiz[i].o[quiz[i].a]);
+  
+  if(isComprehensiveExamMode) {
+      btn.classList.add("selected-exam"); playAudioTone('click'); triggerHaptic('click');
+      autoAdvanceTimeout = setTimeout(() => { nextQ(); }, 150);
+  } else if(currentMode === 'study' || currentMode === 'sequential' || currentMode === 'bookmark' || currentMode === 'memorize') {
+      if(idx===correctIdx){
+        btn.classList.add("correct"); answers[i]=true; score++;
+        playAudioTone('correct'); triggerHaptic('correct');
+        autoAdvanceTimeout = setTimeout(() => { nextQ(); }, 1200); 
+      }else{
+        btn.classList.add("wrong"); btn.classList.add("shake-anim"); 
+        oDiv.children[correctIdx].classList.add("correct"); answers[i]=false;
+        playAudioTone('wrong'); triggerHaptic('wrong');
+      }
+  } else { btn.classList.add("selected-exam"); playAudioTone('click'); triggerHaptic('click'); }
+  updateMidNav(); saveProgress();
+}
+
+function nextQ(){ if(i<quiz.length-1){i++;load()} else showResult(); }
+function prevQ(){ if(i>0){i--;load()} }
+
+function goToHome() {
+    clearInterval(timerInterval); forceStopSpeechEngine(); saveProgress(); 
+    quizContainer.style.display = "none"; startCard.style.display = "block";
+    isReviewMode = false;
+    
+    if(isComprehensiveExamMode) { selectRootMode('main'); } else { selectRootMode('lectures'); }
+}
+
+function saveProgress() {
+    if(isReviewMode || isComprehensiveExamMode) return; 
+    const dataToSave = { quiz: quiz, answers: answers, i: i, score: score, currentMode: currentMode, currentDataset: currentDataset };
+    localStorage.setItem("theCodingNurse_quiz_progress", JSON.stringify(dataToSave));
+}
+
+function checkSavedProgress() {
+    if(localStorage.getItem("theCodingNurse_quiz_progress") && !isComprehensiveExamMode) { document.getElementById("resumeBtn").style.display = "block"; } 
+    else { document.getElementById("resumeBtn").style.display = "none"; }
+}
+
+function showHighScore() {
+    let modeKey = isComprehensiveExamMode ? "theCodingNurse_high_score_comprehensive" : "theCodingNurse_high_score_" + currentDataset + "_" + currentMode;
+    let highScore = localStorage.getItem(modeKey);
+    const hsView = document.getElementById("highScoreView");
+    if(highScore !== null) {
+        let modeName = "";
+        if(isComprehensiveExamMode) modeName = "(الامتحان الشامل)";
+        else if(currentMode === 'sequential') modeName = "(الترتيب)";
+        else if(currentMode === 'study') modeName = "(المذاكرة)";
+        else if(currentMode === 'exam') modeName = "(الامتحان)";
+        else if(currentMode === 'bookmark') modeName = "(المميزة)";
+        else if(currentMode === 'memorize') modeName = "(البصمجة)";
+        
+        document.getElementById("highScoreVal").textContent = isComprehensiveExamMode ? highScore + "% " + modeName : highScore + "% " + modeName + " - " + getDatasetLabel(currentDataset);
+        hsView.style.display = "block";
+    } else { hsView.style.display = "none"; }
+}
+
+function resumeQuiz() {
+    const savedData = localStorage.getItem("theCodingNurse_quiz_progress");
+    if(!savedData) return;
+    const parsedData = JSON.parse(savedData);
+    quiz = parsedData.quiz; answers = parsedData.answers; i = parsedData.i; score = parsedData.score; currentMode = parsedData.currentMode; currentDataset = parsedData.currentDataset || 'place1';
+    isComprehensiveExamMode = false;
+
+    document.querySelectorAll('input[name="quizMode"]').forEach(radio => { if(radio.value === currentMode) radio.checked = true; });
+    if(document.getElementById("datasetDrawer")) document.getElementById("datasetDrawer").value = currentDataset;
+    
+    midNav.innerHTML = "";
+    quiz.forEach((_, idx) => {
+      const b = document.createElement("button"); b.textContent = idx + 1; b.className = "q-btn";
+      b.onclick = () => { i = idx; load(); }; midNav.appendChild(b);
+    });
+    startCard.style.display = "none"; quizContainer.style.display = "block";
+    if(currentMode === 'exam') { startTimer(); } else { document.getElementById("timerBox").style.display = "none"; }
+    load();
+}
+
+function showResult(){
+  clearInterval(timerInterval); forceStopSpeechEngine();
+  localStorage.removeItem("theCodingNurse_quiz_progress"); 
+  document.getElementById("timerBox").style.display = "none";
+  quizContainer.style.display="none"; resultCard.style.display="block";
+  
+  if(currentMode === 'exam' || isComprehensiveExamMode) {
+      score = 0;
+      quiz.forEach((q) => { 
+          const correctIdx = q.combinedOptions.findIndex(opt => opt.en === q.o[q.a]);
+          if(q.userPick === correctIdx) score++; 
+      });
+  }
+  const wrongCount = quiz.length - score;
+  const accuracyRatio = Math.round((score / quiz.length) * 100);
+  
+  if (!isReviewMode) {
+      let modeKey = isComprehensiveExamMode ? "theCodingNurse_high_score_comprehensive" : "theCodingNurse_high_score_" + currentDataset + "_" + currentMode;
+      let savedHighScore = parseInt(localStorage.getItem(modeKey)) || 0;
+      if(!isNaN(accuracyRatio) && accuracyRatio > savedHighScore) { localStorage.setItem(modeKey, accuracyRatio); }
+  }
+  
+  document.getElementById("statCorrect").textContent = score;
+  document.getElementById("statWrong").textContent = wrongCount;
+  document.getElementById("statRatio").textContent = isNaN(accuracyRatio) ? "0%" : accuracyRatio + "%";
+  scoreText.textContent=`${score} / ${quiz.length}`;
+  
+  const bTitle = document.getElementById("badgeTitle");
+  if(accuracyRatio >= 95) bTitle.textContent = "👑 Master of Maternity Nursing";
+  else if(accuracyRatio >= 80) bTitle.textContent = "🩺 Newborn & Maternity Hero";
+  else if(accuracyRatio >= 50) bTitle.textContent = "💡 Smart Nurse";
+  else bTitle.textContent = "💪 Keep Fighting, Future Nurse";
+  
+  document.getElementById("reviewBtn").style.display = wrongCount > 0 ? "inline-block" : "none";
+  if(score >= (quiz.length / 2) && quiz.length > 0) {
+    var duration = 3 * 1000; var end = Date.now() + duration;
+    (function frame() {
+      confetti({ particleCount: 4, angle: 60, spread: 55, origin: { x: 0, y: 0.7 } });
+      confetti({ particleCount: 4, angle: 120, spread: 55, origin: { x: 1, y: 0.7 } });
+      if (Date.now() < end) { requestAnimationFrame(frame); }
+    }());
+  }
+}
+
+function startReview() {
+    let wrongQuestions = quiz.filter(q => {
+        const correctIdx = q.combinedOptions.findIndex(opt => opt.en === q.o[q.a]);
+        return q.userPick !== correctIdx;
+    });
+    if(wrongQuestions.length === 0) return;
+    quiz = JSON.parse(JSON.stringify(wrongQuestions));
+    quiz.forEach(q => { delete q.userPick; delete q.isFlagged; }); 
+    isReviewMode = true; i = 0; score = 0; currentMode = 'study';
+    prepareQuizData(false); resultCard.style.display = "none"; startQuiz();
+}
+
+function downloadResultCard() {
+    const dBtn = document.getElementById("downloadBtn");
+    const containerActionButtons = document.querySelector(".result-actions-container");
+    dBtn.textContent = "⏳ Generating Image..."; dBtn.disabled = true;
+    containerActionButtons.style.display = "none"; 
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const bgColor = currentTheme === 'dark' ? '#0f172a' : '#f1f5f9';
+    
+    html2canvas(document.querySelector(".container"), {
+        backgroundColor: bgColor, scale: 2, useCORS: true, allowTaint: true,
+        onclone: (clonedDoc) => { clonedDoc.documentElement.setAttribute('data-theme', currentTheme); }
+    }).then(canvas => {
+        const downloadLink = document.createElement("a"); downloadLink.download = `TheCodingNurse_Score.png`;
+        downloadLink.href = canvas.toDataURL("image/png"); downloadLink.click();
+        containerActionButtons.style.display = "flex"; dBtn.textContent = "📸 تحميل النتيجة كصورة"; dBtn.disabled = false;
+    }).catch(err => {
+        containerActionButtons.style.display = "flex"; dBtn.textContent = "📸 تحميل النتيجة كصورة"; dBtn.disabled = false;
+    });
+}
+
+function restartQuiz(){
+  i=0; score=0; isReviewMode = false; clearInterval(timerInterval); forceStopSpeechEngine();
+  localStorage.removeItem("theCodingNurse_quiz_progress");
+  document.getElementById("resumeBtn").style.display = "none";
+  resultCard.style.display="none"; startCard.style.display="block";
+  selectRootMode('main');
+}
+
+window.onload = function() { 
+    const drawer = document.getElementById("datasetDrawer");
+    if(drawer) { currentDataset = drawer.value || 'place1'; }
+    selectRootMode('main'); 
+};
+</script>
+</body>
+</html>
